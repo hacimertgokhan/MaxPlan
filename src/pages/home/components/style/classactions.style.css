@@ -1,0 +1,91 @@
+.HoverInformation {
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #35353a;
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: 300ms;
+  opacity: 0;
+  top: 0; }
+
+.ClassPart {
+  width: 570px;
+  height: 550px;
+  background-color: #202020;
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  border-radius: 8px;
+  margin: auto; }
+  .ClassPart h1 {
+    text-align: center;
+    margin-top: 25px;
+    color: #50cb70; }
+  .ClassPart .ClassActions {
+    width: 100%;
+    height: 425px;
+    scroll-behavior: smooth;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    overflow: auto;
+    right: 0;
+    top: 20%; }
+    .ClassPart .ClassActions ul {
+      list-style-type: none;
+      gap: 1em;
+      justify-content: left;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      .ClassPart .ClassActions ul li {
+        margin-left: 25px;
+        width: 150px;
+        height: 200px;
+        background-color: #303030;
+        padding: 8px;
+        position: relative;
+        border-radius: 8px; }
+        .ClassPart .ClassActions ul li .Buttons {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 5%;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          width: 140px;
+          height: 25px; }
+          .ClassPart .ClassActions ul li .Buttons button {
+            width: 60px;
+            outline: none;
+            cursor: pointer;
+            color: #202020;
+            margin-left: 7px;
+            border: none;
+            border-radius: 8px;
+            transition: 200ms;
+            height: 25px;
+            background-color: #50cb70; }
+          .ClassPart .ClassActions ul li .Buttons button:hover {
+            box-shadow: 0 0 10px 1px #50cb70; }
+        .ClassPart .ClassActions ul li strong {
+          display: block;
+          margin-left: 5px;
+          color: #50cb70; }
+        .ClassPart .ClassActions ul li h5 {
+          text-align: center;
+          margin-top: 15px;
+          margin-bottom: 15px; }
+        .ClassPart .ClassActions ul li p {
+          margin-top: 5px;
+          font-weight: 400;
+          color: #fff;
+          font-size: 12px; }
+      .ClassPart .ClassActions ul li:hover .HoverInformation {
+        opacity: 1; }
+
+/*# sourceMappingURL=classactions.style.css.map */

@@ -1,0 +1,94 @@
+.UserActions {
+  width: 200px;
+  height: 550px;
+  background-color: #202020;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  border-radius: 8px;
+  margin: auto;
+  h1 {
+    text-align: center;
+    margin-top: 25px;
+    color: #50cb70;
+  }
+  .Datas {
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+
+      li {
+        color: white;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        gap: 0.5em;
+        scroll-behavior: smooth;
+        width: fit-content;
+        transition: 300ms;
+        overflow: auto;
+        font-size: 15px;
+        #Ico {
+          font-size: 20px;
+          transition: 300ms;
+          color: #50cb70
+        }
+      }
+      li:hover {
+        color: #bbbeff;
+        #Ico {
+          transition: 300ms;
+          color: #6a6fe7;
+        }
+      }
+    }
+  }
+  .About {
+    width: 100%;
+    margin-top: 25px;
+    height: 200px;
+    ul {
+      list-style-type: none;
+      display: grid;
+      justify-content: left;
+      margin-left: 15px;
+      gap: 1em;
+      li {
+        color: white;
+        outline: none;
+        border-width: 0.8px;
+        border-style: none none solid none;
+        border-radius: 1px;
+        border-color: #50cb70;
+        padding-right: 10px;
+        cursor: pointer;
+        display: flex;
+        gap: 0.5em;
+        transition: 300ms;
+        scroll-behavior: smooth;
+        font-size: 15px;
+        width: 165px;
+        overflow: auto;
+        #Ico {
+          transition: 300ms;
+          color: #50cb70;
+        }
+        #Mail {
+          transition: 300ms;
+          color: #50cb70;
+        }
+      }
+      li:hover {
+        #Ico{color: #6a6fe7}
+        border-color: #b0c7fc;
+        transform: scale(1.05);
+      }
+    }
+  }
+}

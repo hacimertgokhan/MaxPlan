@@ -1,0 +1,23 @@
+
+.Navigation {
+  width: auto;
+  height: 75px;
+  border-radius: 8px;
+  background-color: #202020;
+  display: flex;
+  place-items: center;
+  margin: 50px 75px;
+  h1 {
+    display: flex;
+    color: #50cb70;
+    margin-left: 50px;
+  }
+  ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    margin-right: 50px;
+    justify-content: right;
+    gap: 3em;
+  }
+}

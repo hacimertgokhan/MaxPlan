@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css?family=Inter");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  background-color: #151515; }
+
+.Setup {
+  width: 1200px;
+  height: 600px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; }
+  .Setup .Sections {
+    width: 250px;
+    height: 35px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto; }
+    .Setup .Sections ul {
+      justify-content: center;
+      place-items: center;
+      list-style-type: none;
+      display: flex;
+      gap: 1em; }
+      .Setup .Sections ul #act {
+        border-color: #6a6fe7; }
+        .Setup .Sections ul #act a {
+          color: #a1a5f5; }
+      .Setup .Sections ul li {
+        width: 35px;
+        border-radius: 4px;
+        height: 35px;
+        border-width: 1px;
+        border-style: none none solid none;
+        border-color: #ffffff;
+        transition: 300ms;
+        cursor: pointer; }
+        .Setup .Sections ul li a {
+          color: white;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          transition: 300ms;
+          justify-content: center;
+          place-items: center;
+          font-size: 25px; }
+      .Setup .Sections ul li:hover {
+        border-color: #6a6fe7; }
+        .Setup .Sections ul li:hover a {
+          color: #a1a5f5; }
+  .Setup .Corpus {
+    width: 800px;
+    height: 500px;
+    background-color: #161616;
+    position: absolute;
+    border-radius: 4px;
+    left: 0;
+    right: 0;
+    top: 15%;
+    margin: auto; }
+    .Setup .Corpus .User {
+      display: block; }
+    .Setup .Corpus .Class {
+      display: none; }
+      .Setup .Corpus .Class .Preview {
+        overflow: auto;
+        scroll-behavior: smooth;
+        width: 800px;
+        height: 240px; }
+        .Setup .Corpus .Class .Preview ul {
+          list-style-type: none;
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          gap: 0.8em;
+          justify-content: center; }
+          .Setup .Corpus .Class .Preview ul li {
+            border-radius: 4px;
+            background-color: #202020;
+            display: flex;
+            width: 100%;
+            place-items: center;
+            justify-content: left;
+            padding-left: 25px; }
+            .Setup .Corpus .Class .Preview ul li p {
+              color: white; }
+            .Setup .Corpus .Class .Preview ul li button {
+              width: 25px;
+              margin-right: 10px;
+              outline: none;
+              border: none;
+              border-radius: 3px;
+              background-color: #d85424;
+              color: #202020;
+              display: grid;
+              place-items: center;
+              height: 25px;
+              cursor: pointer;
+              transition: 300ms; }
+            .Setup .Corpus .Class .Preview ul li button:hover {
+              color: #fff;
+              background-color: #d85424; }
+      .Setup .Corpus .Class ul li form {
+        display: flex;
+        place-items: center; }
+        .Setup .Corpus .Class ul li form button {
+          margin-top: 10px;
+          margin-left: 50px;
+          width: 25px;
+          outline: none;
+          border: none;
+          border-radius: 3px;
+          background-color: #50cb70;
+          color: #202020;
+          display: grid;
+          place-items: center;
+          height: 25px;
+          cursor: pointer;
+          transition: 300ms; }
+        .Setup .Corpus .Class ul li form button:hover {
+          color: #fff;
+          background-color: #6a6fe7; }
+    .Setup .Corpus .Pdf {
+      display: none; }
+      .Setup .Corpus .Pdf .Preview {
+        overflow: auto;
+        scroll-behavior: smooth;
+        width: 800px;
+        height: 240px; }
+        .Setup .Corpus .Pdf .Preview ul {
+          list-style-type: none;
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          gap: 0.8em;
+          justify-content: center; }
+          .Setup .Corpus .Pdf .Preview ul li {
+            border-radius: 4px;
+            background-color: #202020;
+            display: flex;
+            width: 100%;
+            place-items: center;
+            justify-content: left;
+            padding-left: 25px; }
+            .Setup .Corpus .Pdf .Preview ul li p {
+              color: white; }
+            .Setup .Corpus .Pdf .Preview ul li button {
+              width: 25px;
+              margin-right: 10px;
+              outline: none;
+              border: none;
+              border-radius: 3px;
+              background-color: #d85424;
+              color: #202020;
+              display: grid;
+              place-items: center;
+              height: 25px;
+              cursor: pointer;
+              transition: 300ms; }
+            .Setup .Corpus .Pdf .Preview ul li button:hover {
+              color: #fff;
+              background-color: #d85424; }
+      .Setup .Corpus .Pdf ul li form {
+        display: flex;
+        place-items: center; }
+        .Setup .Corpus .Pdf ul li form button {
+          margin-top: 10px;
+          margin-left: 50px;
+          width: 25px;
+          outline: none;
+          border: none;
+          border-radius: 3px;
+          background-color: #50cb70;
+          color: #202020;
+          display: grid;
+          place-items: center;
+          height: 25px;
+          cursor: pointer;
+          transition: 300ms; }
+        .Setup .Corpus .Pdf ul li form button:hover {
+          color: #fff;
+          background-color: #6a6fe7; }
+    .Setup .Corpus .DoSetup {
+      width: fit-content;
+      height: 30px;
+      position: absolute;
+      margin: auto;
+      bottom: 20%;
+      left: 0;
+      right: 0; }
+      .Setup .Corpus .DoSetup p {
+        width: 500px;
+        text-align: center;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 15px;
+        height: 30px;
+        transition: 300ms;
+        background-color: #d85424; }
+      .Setup .Corpus .DoSetup p:hover {
+        border-radius: 2px; }
+      .Setup .Corpus .DoSetup button {
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        width: 150px;
+        border-radius: 5px;
+        color: #202020;
+        height: 30px;
+        transition: 300ms;
+        background-color: #50cb70; }
+      .Setup .Corpus .DoSetup button:hover {
+        border-radius: 2px; }
+    .Setup .Corpus .Checkbox {
+      width: 650px;
+      height: 100px;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 35%; }
+      .Setup .Corpus .Checkbox ul li {
+        display: flex;
+        width: 160px;
+        height: 50px;
+        color: white;
+        place-items: center; }
+        .Setup .Corpus .Checkbox ul li p {
+          display: grid;
+          place-items: center;
+          margin-left: 6px;
+          color: #50cb70;
+          margin-top: 3px; }
+    .Setup .Corpus h1 {
+      color: #b7b9f7;
+      text-align: center;
+      margin-top: 25px; }
+    .Setup .Corpus ul {
+      padding: 25px;
+      list-style-type: none;
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      place-items: center;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 3em; }
+      .Setup .Corpus ul li {
+        width: 200px;
+        height: 60px;
+        display: grid;
+        justify-content: center; }
+        .Setup .Corpus ul li label {
+          font-size: 20px;
+          font-weight: 400;
+          color: #d6d8fb; }
+        .Setup .Corpus ul li input {
+          width: 150px;
+          outline: none;
+          border-width: 1px;
+          border-style: none none solid none;
+          border-radius: 1px;
+          margin-left: 25px;
+          border-color: #ffffff;
+          height: 30px;
+          background-color: #161616;
+          color: white; }
+  .Setup .Caput {
+    display: flex;
+    font-family: 'Inter', serif; }
+    .Setup .Caput h1 {
+      color: #fff;
+      z-index: 5;
+      filter: drop-shadow(25px 15px 30px #3035de);
+      animation: setup_header_h1 2s 3s infinite ease-in-out; }
+    .Setup .Caput h1:after {
+      font-size: 12px;
+      font-weight: 200;
+      content: ' Kurulum';
+      color: white; }
+    .Setup .Caput .Developer {
+      color: white;
+      height: fit-content;
+      position: absolute;
+      right: -5%;
+      top: 0;
+      bottom: 0;
+      gap: 1em;
+      place-items: center;
+      display: flex;
+      font-size: 30px; }
+      .Setup .Caput .Developer a {
+        display: flex;
+        place-items: center;
+        justify-content: left;
+        text-decoration: none;
+        color: #fff;
+        transition: 300ms;
+        cursor: pointer;
+        width: 250px; }
+        .Setup .Caput .Developer a .Name {
+          font-size: 12px;
+          color: white;
+          transition: 300ms;
+          margin-top: 5px;
+          opacity: 0; }
+      .Setup .Caput .Developer a:hover {
+        color: #bbbeff; }
+        .Setup .Caput .Developer a:hover .Name {
+          opacity: 1;
+          margin-left: 10px;
+          transform: translateX(0%); }
+
+@keyframes setup_header_h1 {
+  0% {
+    filter: drop-shadow(25px 15px 80px #3035de); }
+  25% {
+    filter: drop-shadow(60px 25px 50px #3035de); }
+  50% {
+    filter: drop-shadow(-35px -15px 50px #3035de);
+    color: #bbbeff; }
+  75% {
+    filter: drop-shadow(-25px -5px 90px #3035de); }
+  100% {
+    filter: drop-shadow(25px 15px 60px #3035de); } }
+
+/*# sourceMappingURL=setup.style.css.map */
