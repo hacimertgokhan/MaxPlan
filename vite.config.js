@@ -12,6 +12,9 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
+  build: {
+    target: "ES2022" // <--------- ✅✅✅✅✅✅
+  },
   plugins: [
     react(),
     copy({

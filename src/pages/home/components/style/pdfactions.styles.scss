@@ -47,8 +47,25 @@
   }
 }
 
+.Item {
+  position: fixed;
+  z-index: 9;
+  transform: translateY(100%);
+}
+
 .Preview {
   position: relative;
   display: grid;
   place-items: center;
+}
+
+.TestPreview {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  background-color: #202020;
+  width: 50px;
+  height: 100%;
 }

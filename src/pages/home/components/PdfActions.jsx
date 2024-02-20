@@ -34,6 +34,12 @@ export default function PdfActions() {
                             Başlat
                         </NavLink>
                     </li>
+                    <li>
+                        <h1>Temel Kavramlar</h1>
+                        <NavLink to="/Test" activestyle>
+                            Başlat
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
         </>

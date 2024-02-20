@@ -1,0 +1,320 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #101010;
+  background: -moz-linear-gradient(130deg, #101010 0%, #202020 33%, #303030 73%, #353535 100%);
+  background: -webkit-linear-gradient(130deg, #101010 0%, #202020 33%, #303030 73%, #353535 100%);
+  background: linear-gradient(130deg, #101010 0%, #202020 33%, #303030 73%, #353535 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#101010",endColorstr="#353535",GradientType=1); }
+
+.MaxPlan {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  grid-template-areas: "nav  main";
+  place-items: center;
+  gap: 1em;
+  justify-content: center;
+  grid-template-columns: 350px 1100px; }
+  .MaxPlan .Management {
+    background-color: rgba(32, 32, 32, 0.5);
+    width: 1100px;
+    border-radius: 8px;
+    height: 710px;
+    position: relative;
+    display: flex; }
+    .MaxPlan .Management .Presentation {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      place-items: center; }
+      .MaxPlan .Management .Presentation h1 {
+        margin-top: 25px;
+        color: #50cb70; }
+      .MaxPlan .Management .Presentation ul {
+        list-style-type: none;
+        overflow: auto;
+        display: flex;
+        height: 80%;
+        scroll-behavior: smooth;
+        margin-top: 25px;
+        width: 100%;
+        flex-wrap: wrap;
+        place-items: center;
+        flex-direction: column;
+        gap: 1em; }
+        .MaxPlan .Management .Presentation ul li {
+          border-radius: 5px;
+          width: 300px;
+          height: 150px;
+          position: relative;
+          background-color: rgba(32, 32, 32, 0.25); }
+          .MaxPlan .Management .Presentation ul li h1 {
+            color: white;
+            font-weight: 300;
+            font-size: 20px;
+            text-align: center; }
+          .MaxPlan .Management .Presentation ul li strong {
+            position: absolute;
+            bottom: 10%;
+            font-size: 15px;
+            color: white;
+            font-weight: 400;
+            margin: auto;
+            left: 0;
+            right: 0;
+            width: fit-content; }
+          .MaxPlan .Management .Presentation ul li button {
+            background: transparent;
+            outline: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            place-items: center;
+            margin: 40px 25px;
+            cursor: pointer;
+            transition: 300ms; }
+          .MaxPlan .Management .Presentation ul li button:hover {
+            color: #50cb70; }
+          .MaxPlan .Management .Presentation ul li button:active {
+            transform: scale(1.02);
+            color: #24dd52; }
+    .MaxPlan .Management .Classes {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      place-items: center; }
+      .MaxPlan .Management .Classes h1 {
+        margin-top: 25px;
+        color: #50cb70; }
+      .MaxPlan .Management .Classes ul {
+        list-style-type: none;
+        overflow: auto;
+        display: flex;
+        height: 80%;
+        scroll-behavior: smooth;
+        margin-top: 25px;
+        width: 100%;
+        flex-wrap: wrap;
+        place-items: center;
+        flex-direction: column;
+        gap: 1em; }
+        .MaxPlan .Management .Classes ul li {
+          border-radius: 5px;
+          width: 300px;
+          height: 150px;
+          position: relative;
+          cursor: pointer;
+          transition: 400ms;
+          background-color: rgba(32, 32, 32, 0.25); }
+          .MaxPlan .Management .Classes ul li h1 {
+            color: white;
+            font-weight: 300;
+            font-size: 20px;
+            text-align: center; }
+          .MaxPlan .Management .Classes ul li .Infos {
+            width: 100%;
+            display: flex;
+            margin: 5px 25px;
+            flex-direction: column;
+            color: white;
+            font-size: 20px;
+            gap: 0.3em; }
+            .MaxPlan .Management .Classes ul li .Infos span {
+              display: flex;
+              gap: 0.2em;
+              place-items: center; }
+              .MaxPlan .Management .Classes ul li .Infos span .RealNumber {
+                transition: 300ms;
+                opacity: 0;
+                position: absolute;
+                left: 16%; }
+              .MaxPlan .Management .Classes ul li .Infos span .FakeNumber {
+                transition: 300ms;
+                opacity: 1; }
+          .MaxPlan .Management .Classes ul li .Infos:hover span .RealNumber {
+            opacity: 1; }
+          .MaxPlan .Management .Classes ul li .Infos:hover span .FakeNumber {
+            opacity: 0; }
+        .MaxPlan .Management .Classes ul li:hover {
+          background-color: rgba(80, 203, 112, 0.25); }
+    .MaxPlan .Management .Project {
+      position: absolute;
+      bottom: 1%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: fit-content;
+      height: fit-content; }
+      .MaxPlan .Management .Project h1 {
+        color: #9DFFA4;
+        z-index: 3; }
+      .MaxPlan .Management .Project h1:after {
+        font-weight: 400;
+        margin-left: -4px;
+        content: 'by Hacı Mert Gökhan';
+        font-size: 15px;
+        color: #9DFFA4; }
+  .MaxPlan .Panel {
+    height: 710px;
+    display: flex;
+    left: 5%;
+    place-items: center;
+    flex-direction: column; }
+    .MaxPlan .Panel .Notes {
+      width: 315px;
+      height: 315px;
+      margin: auto;
+      background-color: rgba(32, 32, 32, 0.5);
+      display: flex;
+      flex-direction: row;
+      place-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius: 10px;
+      padding: 15px; }
+      .MaxPlan .Panel .Notes h1 {
+        text-align: center;
+        position: sticky;
+        color: #55CF79;
+        margin-bottom: 15px; }
+      .MaxPlan .Panel .Notes .Items {
+        width: 100%;
+        transform: translateY(-100%);
+        margin: auto 25px; }
+        .MaxPlan .Panel .Notes .Items ul {
+          list-style-type: none;
+          display: flex;
+          justify-content: space-between; }
+          .MaxPlan .Panel .Notes .Items ul li {
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+            width: fit-content;
+            height: fit-content;
+            display: grid;
+            place-items: center;
+            transition: 300ms; }
+          .MaxPlan .Panel .Notes .Items ul li:hover {
+            color: #50cb70; }
+          .MaxPlan .Panel .Notes .Items ul li:active {
+            transform: rotateZ(20deg);
+            color: #24dd52; }
+      .MaxPlan .Panel .Notes .Boxes {
+        width: 100%;
+        justify-content: center;
+        height: 80%;
+        display: flex;
+        position: sticky;
+        place-items: center; }
+        .MaxPlan .Panel .Notes .Boxes ul {
+          display: flex;
+          flex-direction: row;
+          gap: 1em;
+          overflow: auto;
+          height: 90%;
+          position: absolute;
+          bottom: 20%;
+          flex-wrap: wrap;
+          place-items: center;
+          width: 100%;
+          list-style-type: none; }
+          .MaxPlan .Panel .Notes .Boxes ul li {
+            position: relative;
+            width: 280px;
+            background-color: rgba(32, 32, 32, 0.5);
+            height: 150px;
+            border-radius: 8px; }
+            .MaxPlan .Panel .Notes .Boxes ul li p {
+              margin: 15px;
+              color: white; }
+            .MaxPlan .Panel .Notes .Boxes ul li span {
+              width: 100%;
+              height: 10%;
+              position: relative; }
+              .MaxPlan .Panel .Notes .Boxes ul li span button {
+                position: absolute;
+                color: white;
+                left: 0;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                border: none;
+                font-size: 20px;
+                transition: 300ms; }
+              .MaxPlan .Panel .Notes .Boxes ul li span button:hover {
+                color: indianred; }
+              .MaxPlan .Panel .Notes .Boxes ul li span button:active {
+                transform: rotateZ(20deg);
+                color: red; }
+              .MaxPlan .Panel .Notes .Boxes ul li span h5 {
+                color: white;
+                position: relative;
+                float: right; }
+    .MaxPlan .Panel .User {
+      width: 315px;
+      height: auto;
+      margin: auto;
+      background-color: rgba(32, 32, 32, 0.25);
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      flex-wrap: wrap;
+      border-radius: 10px;
+      padding: 25px; }
+      .MaxPlan .Panel .User .Box {
+        background-color: rgba(32, 32, 32, 0.5);
+        display: grid;
+        border-radius: 8px;
+        padding: 5px;
+        place-items: center; }
+        .MaxPlan .Panel .User .Box .Image {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          background-color: #50cb70;
+          position: sticky;
+          display: flex;
+          margin: 25px auto;
+          place-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 100px; }
+        .MaxPlan .Panel .User .Box .Texts {
+          margin-top: 5px;
+          color: #50cb70;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap; }
+          .MaxPlan .Panel .User .Box .Texts h1 {
+            font-size: 25px;
+            color: #55CF79; }
+          .MaxPlan .Panel .User .Box .Texts h2 {
+            font-size: 20px;
+            margin-top: -10px;
+            color: #7DE29B; }
+          .MaxPlan .Panel .User .Box .Texts h3 {
+            font-size: 18px;
+            margin: 10px auto;
+            color: #7DE29B; }
+
+/*# sourceMappingURL=newhome.css.map */

@@ -1,0 +1,373 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(16,16,16);
+  background: -moz-linear-gradient(130deg, rgba(16,16,16,1) 0%, rgba(32,32,32,1) 33%, rgba(48,48,48,1) 73%, rgba(53,53,53,1) 100%);
+  background: -webkit-linear-gradient(130deg, rgba(16,16,16,1) 0%, rgba(32,32,32,1) 33%, rgba(48,48,48,1) 73%, rgba(53,53,53,1) 100%);
+  background: linear-gradient(130deg, rgba(16,16,16,1) 0%, rgba(32,32,32,1) 33%, rgba(48,48,48,1) 73%, rgba(53,53,53,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#101010",endColorstr="#353535",GradientType=1);
+}
+
+.MaxPlan {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  grid-template-areas:
+    "nav  main";
+  place-items: center;
+  gap: 1em;
+  justify-content: center;
+  grid-template-columns: 350px 1100px;
+  .Management {
+    background-color: rgba(32, 32, 32, 0.50);
+    width: 1100px;
+    border-radius: 8px;
+    height: 710px;
+    position: relative;
+    display: flex;
+    .Presentation {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      h1 {
+        margin-top: 25px;
+        color: #50cb70;
+      }
+      ul {
+        list-style-type: none;
+        overflow: auto;
+        display: flex;
+        height: 80%;
+        scroll-behavior: smooth;
+        margin-top: 25px;
+        width: 100%;
+        flex-wrap: wrap;
+        place-items: center;
+        flex-direction: column;
+        gap: 1em;
+        li {
+          border-radius: 5px;
+          width: 300px;
+          height: 150px;
+          position: relative;
+          background-color: rgba(32, 32, 32, 0.25);
+          h1 {
+            color: white;
+            font-weight: 300;
+            font-size: 20px;
+            text-align: center;
+          }
+          strong {
+            position: absolute;
+            bottom: 10%;
+            font-size: 15px;
+            color: white;
+            font-weight: 400;
+            margin: auto;
+            left: 0; right: 0; width: fit-content;
+          }
+          button {
+            background: transparent;
+            outline: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            place-items: center;
+            margin: 40px 25px;
+            cursor: pointer;
+            transition: 300ms;
+          }
+          button:hover {
+            color: #50cb70;
+          }
+          button:active {
+            transform: scale(1.02);
+            color: #24dd52;
+          }
+        }
+      }
+    }
+    .Classes {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      h1 {
+        margin-top: 25px;
+        color: #50cb70;
+      }
+      ul {
+        list-style-type: none;
+        overflow: auto;
+        display: flex;
+        height: 80%;
+        scroll-behavior: smooth;
+        margin-top: 25px;
+        width: 100%;
+        flex-wrap: wrap;
+        place-items: center;
+        flex-direction: column;
+        gap: 1em;
+        li {
+          border-radius: 5px;
+          width: 300px;
+          height: 150px;
+          position: relative;
+          cursor: pointer;
+          transition: 400ms;
+          background-color: rgba(32, 32, 32, 0.25);
+          h1 {
+            color: white;
+            font-weight: 300;
+            font-size: 20px;
+            text-align: center;
+          }
+          .Infos {
+            width: 100%;
+            display: flex;
+            margin: 5px 25px;
+            flex-direction: column;
+            color: white;
+            font-size: 20px;
+            gap: 0.3em;
+            span {
+              display: flex;
+              gap: 0.2em;
+              place-items: center;
+              .RealNumber {
+                transition: 300ms;
+                opacity: 0;
+                position: absolute;
+                left: 16%;
+              }
+              .FakeNumber {
+                transition: 300ms;
+                opacity: 1;
+              }
+            }
+          }
+          .Infos:hover {
+            span {
+              .RealNumber {
+                opacity: 1;
+              }
+              .FakeNumber {
+                opacity: 0;
+              }
+            }
+          }
+        }
+        li:hover {
+          background-color: rgba(80, 203, 112, 0.25);
+        }
+      }
+    }
+    .Project {
+      position: absolute;
+      bottom: 1%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      h1 {
+        color: #9DFFA4;
+        z-index: 3;
+      }
+      h1:after {
+        font-weight: 400;
+        margin-left: -4px;
+        content: 'by Hacı Mert Gökhan';
+        font-size: 15px;
+        color: #9DFFA4;
+      }
+    }
+  }
+  .Panel {
+    height: 710px;
+    display: flex;
+    left: 5%;
+    place-items: center;
+    flex-direction: column;
+    .Notes {
+      width: 315px;
+      height: 315px;
+      margin: auto;
+      background-color: rgba(32, 32, 32, 0.50);
+      display: flex;
+      flex-direction: row;
+      place-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius: 10px;
+      padding: 15px;
+      h1 {
+        text-align: center;
+        position: sticky;
+        color: #55CF79;
+        margin-bottom: 15px;
+      }
+
+      .Items {
+        width: 100%;
+        transform: translateY(-100%);
+        margin: auto 25px;
+        ul {
+          list-style-type: none;
+          display: flex;
+          justify-content: space-between;
+          li {
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+            width: fit-content;
+            height: fit-content;
+            display: grid;
+            place-items: center;
+            transition: 300ms;
+          }
+          li:hover {
+            color: #50cb70;
+          }
+          li:active {
+            transform: rotateZ(20deg);
+            color: #24dd52;
+          }
+        }
+      }
+      .Boxes {
+        width: 100%;
+        justify-content: center;
+        height: 80%;
+        display: flex;
+        position: sticky;
+        place-items: center;
+        ul {
+          display: flex;
+          flex-direction: row;
+          gap: 1em;
+          overflow: auto;
+          height: 90%;
+          position: absolute;
+          bottom: 20%;
+          flex-wrap: wrap;
+          place-items: center;
+          width: 100%;
+          list-style-type: none;
+          li {
+            position: relative;
+            width: 280px;
+            background-color: rgba(32, 32, 32, 0.50);
+            height: 150px;
+            border-radius: 8px;
+            p {
+              margin: 15px;
+              color: white;
+            }
+            span {
+              width: 100%;
+              height: 10%;
+              position: relative;
+              button {
+                position: absolute;
+                color: white;
+                left: 0;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                border: none;
+                font-size: 20px;
+                transition: 300ms;
+              }
+              button:hover {
+                color: indianred;
+              }
+              button:active {
+                transform: rotateZ(20deg);
+                color: red;
+              }
+              h5 {
+                color: white;
+                position: relative;
+                float: right;
+              }
+            }
+          }
+        }
+      }
+    }
+    .User {
+      width: 315px;
+      height: auto;
+      margin: auto;
+      background-color: rgba(32, 32, 32, 0.25);
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      flex-wrap: wrap;
+      border-radius: 10px;
+      padding: 25px;
+      .Box {
+        background-color: rgba(32, 32, 32, 0.50);
+        display: grid;
+        border-radius: 8px;
+        padding: 5px;
+        place-items: center;
+        .Image {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          background-color: #50cb70;
+          position: sticky;
+          display: flex;
+          margin: 25px auto;
+          place-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 100px;
+        }
+        .Texts {
+          margin-top: 5px;
+          color: #50cb70;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          h1 {
+            font-size: 25px;
+            color: #55CF79;
+          }
+          h2 {
+            font-size: 20px;
+            margin-top: -10px;
+            color: #7DE29B;
+          }
+          h3 {
+            font-size: 18px;
+            margin: 10px auto;
+            color: #7DE29B;
+          }
+        }
+      }
+    }
+  }
+}

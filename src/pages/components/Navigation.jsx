@@ -3,6 +3,7 @@ import { FaCode, FaGraduationCap } from "react-icons/fa";
 import { NavLink as Link } from "react-router-dom";
 import './comp.style.css';
 import {GiBigGear} from "react-icons/gi";
+
 export const NavLink = styled(Link)`
     color: #fff;
     display: flex;
@@ -16,6 +17,7 @@ export const NavLink = styled(Link)`
         color: #50cb70;
     }
 `;
+
 export default function Navigation() {
     return (
         <div className="Navigation">

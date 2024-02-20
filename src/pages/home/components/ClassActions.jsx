@@ -1,24 +1,6 @@
 import '../components/style/classactions.style.css';
-
-
-export default function ClassActions() {
-    return (
-        <>
-            <div className="ClassPart">
-                <h1>Sınıflar</h1>
-                <div className="ClassActions">
-                    <ul>
-                    </ul>
-                </div>
-            </div>
-        </>
-    );
-}
-
-/*
 import {BaseDirectory, readDir, readTextFile, removeFile, writeTextFile} from "@tauri-apps/api/fs";
 import yaml from "js-yaml";
-import {useId, useState} from "react";
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -66,26 +48,42 @@ processEntries(entries).then(() => {
     console.log(entries);
 });
 
-{
-    classArray.map((a) => {
-        return (
-            <li key={a.id}>
-                <h5><strong>{a.name}</strong></h5>
-                <p>Derslik: <strong>{a.less}</strong></p>
-                <p>Temsilci: <strong>{a.tems}</strong></p>
-                <span className="Buttons">
-                <button onClick={(e) => {
-                    e.preventDefault();
-                    deleteClass(`${a.name}.yml`).then(() => {
-                        window.location.reload()
-                    });
-                }}>Sil</button>
-            </span>
-                <div className="HoverInformation">
-                    <p>Temsilci Numarası <strong>{a.num}</strong></p>
+
+
+export default function ClassActions() {
+    return (
+        <>
+            <div className="ClassPart">
+                <h1>Sınıflar</h1>
+                <div className="ClassActions">
+                    <ul>
+                        {
+                            classArray.map((a) => {
+                                return (
+                                    <li key={a.id}>
+                                        <h5><strong>{a.name}</strong></h5>
+                                        <p>Derslik: <strong>{a.less}</strong></p>
+                                        <p>Temsilci: <strong>{a.tems}</strong></p>
+                                        <span className="Buttons">
+                                            <button onClick={(e) => {
+                                                e.preventDefault();
+                                                deleteClass(`${a.name}.yml`).then(() => {
+                                                    window.location.reload()
+                                                });
+                                            }}>Sil</button>
+                                        </span>
+                                        <div className="HoverInformation">
+                                            <p>Temsilci Numarası <strong>{a.num}</strong></p>
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
                 </div>
-            </li>
-        )
-    })
+            </div>
+        </>
+    );
 }
-*/
+
+

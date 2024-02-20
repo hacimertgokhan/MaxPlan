@@ -1,0 +1,125 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.MaxPlanSettings {
+  width: 1400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 700px;
+  display: grid;
+  place-items: center;
+  background: rgba(32, 32, 32, 0.25); }
+  .MaxPlanSettings ul {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+    list-style-type: none; }
+    .MaxPlanSettings ul li {
+      height: 600px;
+      border-radius: 5px;
+      width: 350px;
+      position: relative;
+      background: rgba(32, 32, 32, 0.25); }
+      .MaxPlanSettings ul li .h1 {
+        color: #50cb70;
+        margin: 20px auto;
+        text-align: center;
+        width: fit-content;
+        height: fit-content;
+        padding: 15px 80px;
+        border-radius: 5px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: rgba(32, 32, 32, 0.6); }
+      .MaxPlanSettings ul li .Classes {
+        width: 100%;
+        height: 58%;
+        display: flex;
+        position: absolute;
+        bottom: 20%;
+        flex-direction: row;
+        overflow: auto;
+        justify-content: center;
+        gap: 1em;
+        flex-wrap: wrap; }
+      .MaxPlanSettings ul li .AddPDF {
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+        margin: auto; }
+        .MaxPlanSettings ul li .AddPDF button {
+          padding: 5px 15px;
+          background: #50cb70;
+          outline: none;
+          cursor: pointer;
+          border: none;
+          border-radius: 5px;
+          transition: 300ms; }
+        .MaxPlanSettings ul li .AddPDF button:hover {
+          background: #9dfeb7; }
+      .MaxPlanSettings ul li .Presentations {
+        width: 100%;
+        height: 58%;
+        display: flex;
+        position: absolute;
+        bottom: 20%;
+        flex-direction: row;
+        overflow: auto;
+        justify-content: center;
+        gap: 1em;
+        flex-wrap: wrap; }
+        .MaxPlanSettings ul li .Presentations .Detail {
+          width: 300px;
+          height: 100px;
+          border-radius: 5px;
+          background: rgba(32, 32, 32, 0.5);
+          position: relative; }
+          .MaxPlanSettings ul li .Presentations .Detail h1 {
+            left: 5%;
+            top: 15%;
+            position: absolute;
+            font-size: 25px;
+            color: #50cb70;
+            display: flex;
+            place-items: center; }
+          .MaxPlanSettings ul li .Presentations .Detail button {
+            background: transparent;
+            outline: none;
+            border: none;
+            color: white;
+            position: absolute;
+            right: 5%;
+            top: 15%;
+            transition: 300ms;
+            cursor: pointer;
+            font-size: 25px; }
+          .MaxPlanSettings ul li .Presentations .Detail button:hover {
+            color: #50cb70;
+            transform: rotateZ(45deg); }
+          .MaxPlanSettings ul li .Presentations .Detail .Remove {
+            position: absolute;
+            right: 5%;
+            bottom: 35%; }
+            .MaxPlanSettings ul li .Presentations .Detail .Remove button {
+              background: transparent;
+              outline: none;
+              border: none;
+              color: white;
+              transition: 300ms;
+              cursor: pointer;
+              font-size: 25px; }
+            .MaxPlanSettings ul li .Presentations .Detail .Remove button:hover {
+              color: indianred;
+              transform: rotateZ(12deg); }
+
+/*# sourceMappingURL=newsettings.css.map */
