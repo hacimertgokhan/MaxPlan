@@ -149,7 +149,13 @@ export default function NewHome() {
                         <ul>
                             <li>
                                 <h1>Anatomi Temel Kavramlar</h1>
-                                <button><BiSkipNextCircle/><span style={{fontSize: '20px'}}>Başlat</span></button>
+                                <button><BiSkipNextCircle/>
+                                    <span style={{fontSize: '20px'}}>
+                                        <NavLink to="/Sunum" activestyle>
+                                            Başlat
+                                        </NavLink>
+                                    </span>
+                                </button>
                                 <strong>En son 23.04.2024 tarihinde kullanıldı</strong>
                             </li>
                         </ul>

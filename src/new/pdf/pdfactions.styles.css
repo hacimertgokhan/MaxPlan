@@ -1,0 +1,64 @@
+.PdfActions {
+  width: 550px;
+  height: 550px;
+  background-color: #202020;
+  position: absolute;
+  right: 5%;
+  top: 20%;
+  border-radius: 8px;
+  margin: auto; }
+  .PdfActions h1 {
+    text-align: center;
+    margin-top: 25px;
+    color: #50cb70; }
+  .PdfActions ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    padding: 30px; }
+    .PdfActions ul li {
+      width: 150px;
+      height: 150px;
+      border-radius: 4px;
+      background-color: #171717;
+      position: relative; }
+      .PdfActions ul li h1 {
+        font-size: 16px;
+        font-weight: 500; }
+      .PdfActions ul li button {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 75px;
+        height: 25px;
+        background-color: #50cb70;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        color: #151515;
+        cursor: pointer; }
+
+.Item {
+  position: fixed;
+  z-index: 9;
+  transform: translateY(100%); }
+
+.Preview {
+  position: relative;
+  display: grid;
+  place-items: center; }
+
+.TestPreview {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  background-color: #202020;
+  width: 50px;
+  height: 100%; }
+
+/*# sourceMappingURL=pdfactions.styles.css.map */
