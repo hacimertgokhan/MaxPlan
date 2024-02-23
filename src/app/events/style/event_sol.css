@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.ShowOfferedLessons {
+  background: rgba(16, 16, 16, 0.6);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px; }
+  .ShowOfferedLessons h1 {
+    transform: translateY(100%);
+    color: white;
+    text-align: center; }
+  .ShowOfferedLessons .Add {
+    transform: translateY(50%);
+    width: 100%;
+    display: flex;
+    place-items: center;
+    height: 10%;
+    justify-content: center; }
+    .ShowOfferedLessons .Add input[type="text"] {
+      outline: none;
+      border: none;
+      padding: 5px 5px;
+      border-radius: 5px 0 0 5px; }
+    .ShowOfferedLessons .Add button {
+      background: #7DE29B;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      color: #202020;
+      padding: 5px 15px;
+      transition: 300ms;
+      border-radius: 0 5px 5px 0; }
+    .ShowOfferedLessons .Add button:hover {
+      background: #50cb70; }
+  .ShowOfferedLessons .List {
+    width: 80%;
+    margin: auto;
+    height: 70%; }
+    .ShowOfferedLessons .List ul {
+      flex-wrap: wrap;
+      scroll-behavior: smooth;
+      overflow: auto;
+      height: 100%;
+      width: 100%;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      gap: 1em; }
+      .ShowOfferedLessons .List ul li {
+        border-radius: 5px;
+        width: 250px;
+        height: 150px;
+        background-color: rgba(5, 5, 5, 0.25);
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        place-items: center; }
+        .ShowOfferedLessons .List ul li button {
+          background: transparent;
+          outline: none;
+          cursor: pointer;
+          border: none;
+          color: indianred;
+          position: absolute;
+          bottom: 25%;
+          display: flex;
+          place-items: center;
+          transition: 300ms;
+          gap: 0.2em;
+          font-size: 23px; }
+        .ShowOfferedLessons .List ul li button:hover {
+          color: indianred; }
+        .ShowOfferedLessons .List ul li button:active {
+          color: red; }
+
+/*# sourceMappingURL=event_sol.css.map */

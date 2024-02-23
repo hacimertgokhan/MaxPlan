@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.AddNewClass {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px;
+  position: fixed; }
+  .AddNewClass .ClassList {
+    background: rgba(16, 16, 16, 0.75);
+    border-radius: 6px;
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%; }
+    .AddNewClass .ClassList h1 {
+      text-align: center;
+      color: white;
+      transform: translateY(-100%); }
+    .AddNewClass .ClassList ul {
+      display: flex;
+      list-style-type: none;
+      place-items: center;
+      width: 80%;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      .AddNewClass .ClassList ul li {
+        width: fit-content;
+        height: fit-content; }
+        .AddNewClass .ClassList ul li .LessList {
+          position: relative; }
+          .AddNewClass .ClassList ul li .LessList .Preview {
+            position: fixed;
+            display: flex;
+            margin-top: 1em;
+            flex-direction: column;
+            height: 150px;
+            overflow: auto;
+            width: 200px;
+            gap: 0.5em;
+            place-items: flex-start;
+            justify-content: flex-start;
+            padding: 5px 15px; }
+            .AddNewClass .ClassList ul li .LessList .Preview label {
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              padding: 5px;
+              gap: 0.5em;
+              height: 30px;
+              position: relative; }
+              .AddNewClass .ClassList ul li .LessList .Preview label button {
+                position: absolute;
+                right: 0;
+                outline: none;
+                border: none;
+                display: grid;
+                place-items: center;
+                width: 25px;
+                cursor: pointer;
+                height: 25px;
+                color: #101010;
+                background: indianred;
+                border-radius: 5px; }
+            .AddNewClass .ClassList ul li .LessList .Preview label:before {
+              content: '#'; }
+          .AddNewClass .ClassList ul li .LessList input {
+            outline: none;
+            border: none;
+            padding-left: 10px;
+            width: 175px;
+            height: 25px; }
+          .AddNewClass .ClassList ul li .LessList button {
+            outline: none;
+            border: none;
+            width: 25px;
+            cursor: pointer;
+            height: 25px;
+            color: #101010;
+            background: #50cb70; }
+        .AddNewClass .ClassList ul li label {
+          color: white;
+          display: flex;
+          flex-direction: column; }
+        .AddNewClass .ClassList ul li input {
+          outline: none;
+          border: none;
+          padding-left: 10px;
+          width: 175px;
+          height: 25px; }
+        .AddNewClass .ClassList ul li button {
+          outline: none;
+          border: none;
+          width: 175px;
+          cursor: pointer;
+          height: 25px;
+          color: #101010;
+          background: #50cb70; }
+
+/*# sourceMappingURL=addNewClass.css.map */

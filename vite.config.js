@@ -13,7 +13,7 @@ export default defineConfig(async () => ({
     },
   },
   build: {
-    target: "ES2022" // <--------- ✅✅✅✅✅✅
+    target: "ES2022" // <--- bundan gercekten nefret ediyorum
   },
   plugins: [
     react(),

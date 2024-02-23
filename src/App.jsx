@@ -1,8 +1,8 @@
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import NewHome from "./new/NewHome.jsx";
-import NewSettings from "./new/settings/NewSettings.jsx";
-import Presentation from "./new/pdf/Presentation.jsx";
+import NewHome from "./main/NewHome.jsx";
+import NewSettings from "./main/settings/NewSettings.jsx";
+import Presentation from "./main/pdf/Presentation.jsx";
 
 
 
