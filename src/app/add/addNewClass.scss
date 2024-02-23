@@ -21,11 +21,11 @@
     place-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 5em;
     height: 100%;
     h1 {
       text-align: center;
       color: white;
-      transform: translateY(-100%);
     }
     ul {
       display: flex;
@@ -108,16 +108,17 @@
           width: 175px;
           height: 25px;
         }
-        button {
-          outline: none;
-          border: none;
-          width: 175px;
-          cursor: pointer;
-          height: 25px;
-          color: #101010;
-          background: #50cb70;
-        }
       }
+    }
+    button {
+      outline: none;
+      border: none;
+      width: 175px;
+      cursor: pointer;
+      height: 25px;
+      opacity: 1;
+      color: #101010;
+      background: #50cb70;
     }
   }
 }

@@ -26,7 +26,6 @@ export default function EditClass({display, _old, clsname}) {
     function doSet() {
         if(!Input.trim()) return;
         set(clsname,_old, Input);
-        window.location.reload();
     }
 
     return (

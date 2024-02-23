@@ -1,10 +1,10 @@
 import './style/newsettings.css';
-import {BiPencil, BiSolidBook, BiSolidInfoSquare, BiSolidTrash, BiSolidUser} from "react-icons/bi";
+import {BiPencil, BiRefresh, BiSolidBook, BiSolidInfoSquare, BiSolidTrash, BiSolidUser} from "react-icons/bi";
 import {useEffect, useRef, useState} from "react";
 import {BsEnvelopePaper} from "react-icons/bs";
 import {FaGraduationCap} from "react-icons/fa";
 import {NavLink} from "../components/Navigation.jsx";
-import {BaseDirectory, readDir, readTextFile} from "@tauri-apps/api/fs";
+import {BaseDirectory, readDir, readTextFile, removeFile} from "@tauri-apps/api/fs";
 import yaml from "js-yaml";
 import EditValue from "../../app/edit/EditValue.jsx";
 import EditClass from "../../app/edit/EditClass.jsx";
@@ -54,14 +54,7 @@ processEntries(entries).then(() => {
     console.log(entries);
 });
 
-const deleteClass = async (id) => {
-    const remove = await remove(`MaxPlan//Class//${id}.yml`, {dir: BaseDirectory.Document});
-    if (remove) {
-        console.log('Err: ' + remove.toString());
-    } else {
-        console.error('Succ: ' + remove.toString());
-    }
-};
+
 
 
 export default function NewSettings() {
@@ -71,6 +64,7 @@ export default function NewSettings() {
     const [NewClass, setNewClass] = useState("none");
     const [ClassName, setClassName] = useState("");
     const [Edit, setEdit] = useState("");
+    const [clsState, setclsState] = useState(classArray);
     function DisplayHandler() {
         if(Display === "none") {
             setDisplay("flex");
@@ -79,6 +73,19 @@ export default function NewSettings() {
         }
     }
 
+    const refresh = () => {
+        window.location.reload()
+    }
+
+    const deleteClass = async (name, id) => {
+        const nl = clsState.filter(a => a.id !== id);
+        setclsState(nl);
+        try {
+            removeFile(`MaxPlan//Class//${name}.yml`, {dir: BaseDirectory.Document});
+        } catch (e) {
+            console.log(e);
+        }
+    };
     function NewClassHandler() {
         if(NewClass === "none") {
             setNewClass("flex");
@@ -112,6 +119,7 @@ export default function NewSettings() {
     }, []);
     return (
       <main className={"MaxPlanSettings"}>
+        <div onClick={refresh} className="Refresh"><BiRefresh/></div>
         <ul>
             <li>
                 <h1 className={"h1"}>Sunumlar</h1>
@@ -134,7 +142,7 @@ export default function NewSettings() {
             <li>
                 <h1 className={"h1"} style={{padding: '15px 100px'}}>Sınıflar</h1>
                 <span className="Classes">
-                    {classArray?.map((cls) => {
+                    {clsState?.map((cls) => {
                         return (
                             <span className="Detail">
                                 <span className="ClassInfo">
@@ -161,7 +169,7 @@ export default function NewSettings() {
                                     }}><BiPencil/></button>
                                 </span>
                                 <div className="Delete">
-                                    <button onClick={() => {deleteClass(cls.name);}}><BiSolidTrash/> <span
+                                    <button onClick={() => {deleteClass(cls.name, cls.id);}}><BiSolidTrash/> <span
                                         style={{fontSize: '15px', color: 'white'}}>Sınıfı kaldır</span></button>
                                 </div>
                             </span>
@@ -204,7 +212,7 @@ export default function NewSettings() {
                         </span>
                     </span>
                 </span>
-                <div className={"ReturnHome"}>
+                <div onClick={refresh} className={"ReturnHome"}>
                     <NavLink to="/" activestyle>
                         <FaGraduationCap/>
                     </NavLink>

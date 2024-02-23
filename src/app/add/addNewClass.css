@@ -20,11 +20,11 @@
     place-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 5em;
     height: 100%; }
     .AddNewClass .ClassList h1 {
       text-align: center;
-      color: white;
-      transform: translateY(-100%); }
+      color: white; }
     .AddNewClass .ClassList ul {
       display: flex;
       list-style-type: none;
@@ -97,13 +97,14 @@
           padding-left: 10px;
           width: 175px;
           height: 25px; }
-        .AddNewClass .ClassList ul li button {
-          outline: none;
-          border: none;
-          width: 175px;
-          cursor: pointer;
-          height: 25px;
-          color: #101010;
-          background: #50cb70; }
+    .AddNewClass .ClassList button {
+      outline: none;
+      border: none;
+      width: 175px;
+      cursor: pointer;
+      height: 25px;
+      opacity: 1;
+      color: #101010;
+      background: #50cb70; }
 
 /*# sourceMappingURL=addNewClass.css.map */

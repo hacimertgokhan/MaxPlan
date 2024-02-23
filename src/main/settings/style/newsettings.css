@@ -15,6 +15,21 @@
   display: grid;
   place-items: center;
   background: rgba(32, 32, 32, 0.25); }
+  .MaxPlanSettings .Refresh {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    outline: none;
+    position: fixed;
+    display: grid;
+    place-items: center;
+    border: none;
+    cursor: pointer;
+    color: #50cb70;
+    font-size: 35px;
+    transition: 300ms; }
+  .MaxPlanSettings .Refresh:hover {
+    transform: rotateZ(180deg); }
   .MaxPlanSettings ul {
     display: flex;
     flex-direction: row;

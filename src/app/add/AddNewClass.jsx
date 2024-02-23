@@ -47,6 +47,7 @@ export default function AddNewClass({display}) {
         setLessonList(newNoteList);
     }
 
+
     return (
       <>
           <main className="AddNewClass" style={{display: display}}>
@@ -61,6 +62,7 @@ export default function AddNewClass({display}) {
                                   value={ClassName}
                                   onChange={(e) => {
                                       ClassNameHandler(e)
+                                      Controller();
                                   }}
                                   placeholder={"Sınıf adı"}
                               />
@@ -104,13 +106,17 @@ export default function AddNewClass({display}) {
                                       }}
                                       placeholder={"Ders adı"}
                                   />
-                                  <button onClick={() => addLesson(LessonListInput, Math.floor(Math.random()*590234827))}>+</button>
+                                  <button
+                                      onClick={() => addLesson(LessonListInput, Math.floor(Math.random() * 590234827))}>+
+                                  </button>
                                   <div className="Preview">
                                       {LessonList.map((lessl) => {
                                           return (
                                               <label key={lessl.id}>
                                                   {lessl.lesson}
-                                                  <button onClick={() => {deleteLesson(lessl.id)}}><BiMinusCircle/></button>
+                                                  <button onClick={() => {
+                                                      deleteLesson(lessl.id)
+                                                  }}><BiMinusCircle/></button>
                                               </label>
                                           )
                                       })}
@@ -118,10 +124,8 @@ export default function AddNewClass({display}) {
                               </div>
                           </label>
                       </li>
-                      <li>
-                          <button onClick={() => createClass(ClassName, Number, Name)}>Sınıfı oluştur</button>
-                      </li>
                   </ul>
+                  {ClassName && <button onClick={() => createClass(ClassName, Number, Name)}>Sınıfı oluştur</button>}
               </div>
           </main>
       </>

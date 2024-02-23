@@ -228,6 +228,7 @@ export default function NewHome() {
         } catch (e) {
             console.log(e);
         }
+        window.location.reload();
     }
 
     function LoadPresentation(docname) {

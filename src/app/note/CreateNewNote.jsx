@@ -12,6 +12,7 @@ const randStr = (len) => {
     return result;
 }
 
+
 const createNote = (note,date,id) => {
     try {
         let dname = randStr(6);
@@ -27,7 +28,8 @@ const createNote = (note,date,id) => {
 export default function CreateNewNote({display}) {
     const [Input, setInput] = useState();
     const date = new Date();
-    const [CurrentDate, setCurrentDate] = useState(`${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`);
+    const getDayName = () => {const day = date.getDay();const days = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"];return days[day-1];}
+    const [CurrentDate, setCurrentDate] = useState(`${getDayName()} | ${date.getHours()}.${date.getMinutes()}.${date.getSeconds()} | ${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`);
     function InputHandler(e) {setInput(e.currentTarget.value);}
     const createNewUserNote = (a,b,c) => {
         if(createNote(a,b,c)) {
@@ -35,6 +37,8 @@ export default function CreateNewNote({display}) {
 
         }
     }
+
+
 
     return (
         <div className="CreateNewNote" style={{display: display}}>
