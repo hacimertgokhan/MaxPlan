@@ -371,3 +371,27 @@ html {
     }
   }
 }
+
+.WelcomeTable {
+  width: 800px;
+  height: 125px;
+  text-align: center;
+
+  table {
+    tr {
+      width: 200px;
+      height: 100px;
+    }
+  }
+}
+
+.Continue {
+  width: 100px;
+  height: 25px;
+  border: none; outline: none;
+  color: #101010;
+  background: #50cb70;
+  cursor: pointer;
+  border-radius: 4px;
+
+}

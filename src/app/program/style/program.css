@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #101010;
+  background: -moz-linear-gradient(130deg, #101010 0%, #202020 33%, #303030 73%, #353535 100%);
+  background: -webkit-linear-gradient(130deg, #101010 0%, #202020 33%, #303030 73%, #353535 100%);
+  background: linear-gradient(130deg, #101010 0%, #202020 33%, #303030 73%, #353535 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#101010",endColorstr="#353535",GradientType=1); }
+
+.Programs {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  margin: auto; }
+  .Programs .Showcase {
+    background: rgba(16, 16, 16, 0.5);
+    width: 95%;
+    border-radius: 5px;
+    height: 90%;
+    position: relative; }
+    .Programs .Showcase h1 {
+      color: white;
+      text-align: center;
+      margin-top: 50px; }
+    .Programs .Showcase .ReturnHome {
+      position: absolute;
+      cursor: pointer;
+      left: 3%;
+      top: 5%;
+      font-size: 30px;
+      color: #50cb70;
+      display: flex;
+      place-items: center;
+      gap: 0.2em; }
+      .Programs .Showcase .ReturnHome p {
+        font-size: 18px; }
+    .Programs .Showcase .EditProgram {
+      position: absolute;
+      cursor: pointer;
+      right: 3%;
+      top: 5%;
+      font-size: 30px;
+      color: #50cb70;
+      display: flex;
+      place-items: center;
+      gap: 0.2em; }
+      .Programs .Showcase .EditProgram p {
+        font-size: 18px; }
+    .Programs .Showcase ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      height: 80%;
+      gap: 5em;
+      place-items: center;
+      list-style-type: none; }
+      .Programs .Showcase ul li {
+        position: relative;
+        width: 200px;
+        height: 500px;
+        border-radius: 5px;
+        color: white;
+        background: rgba(16, 16, 16, 0.25);
+        transition: 300ms;
+        cursor: pointer; }
+        .Programs .Showcase ul li h2 {
+          text-align: center;
+          transition: 300ms;
+          margin-top: 25px; }
+        .Programs .Showcase ul li .Load {
+          width: 100%;
+          height: 50%;
+          display: flex;
+          gap: 1em;
+          flex-direction: row;
+          justify-content: center;
+          gap: 1em;
+          flex-wrap: wrap;
+          overflow: auto;
+          margin-top: 15px; }
+          .Programs .Showcase ul li .Load span {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1em;
+            place-items: center; }
+            .Programs .Showcase ul li .Load span h5 {
+              color: #50cb70;
+              font-size: 16px; }
+            .Programs .Showcase ul li .Load span p {
+              color: #9dfeb7; }
+            .Programs .Showcase ul li .Load span q {
+              color: #7de29b; }
+        .Programs .Showcase ul li .Details {
+          bottom: 0;
+          position: absolute;
+          width: 100%;
+          height: 180px;
+          transition: 300ms;
+          opacity: 0; }
+          .Programs .Showcase ul li .Details h3 {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 300; }
+      .Programs .Showcase ul li:hover {
+        background: rgba(48, 48, 48, 0.5);
+        border-radius: 0; }
+        .Programs .Showcase ul li:hover h2 {
+          color: #50cb70; }
+        .Programs .Showcase ul li:hover .Details {
+          opacity: 1; }
+
+/*# sourceMappingURL=program.css.map */

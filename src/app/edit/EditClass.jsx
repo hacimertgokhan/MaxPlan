@@ -14,6 +14,7 @@ const set = async (classname,path, newvalue) => {
     } catch (e) {
         console.log(e);
     }
+    window.location.reload()
 }
 
 export default function EditClass({display, _old, clsname}) {

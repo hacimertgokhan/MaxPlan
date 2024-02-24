@@ -58,6 +58,7 @@ processEntries(entries).then(() => {
 
 
 export default function NewSettings() {
+
     const open = useRef();
     const [Display, setDisplay] = useState("none");
     const [Class, setClass] = useState("none");
@@ -117,6 +118,20 @@ export default function NewSettings() {
         };
 
     }, []);
+
+    const fullScreen = () => {
+        let element = document.documentElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) { /* Firefox */
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { /* IE/Edge */
+            element.msRequestFullscreen();
+        }
+    }
+
     return (
       <main className={"MaxPlanSettings"}>
         <div onClick={refresh} className="Refresh"><BiRefresh/></div>
@@ -212,7 +227,9 @@ export default function NewSettings() {
                         </span>
                     </span>
                 </span>
-                <div onClick={refresh} className={"ReturnHome"}>
+                <div onClick={() => {
+                    refresh();
+                }} className={"ReturnHome"}>
                     <NavLink to="/" activestyle>
                         <FaGraduationCap/>
                     </NavLink>

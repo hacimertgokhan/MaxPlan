@@ -1,13 +1,14 @@
 import './style/newhome.css';
 import {
+    BiAccessibility, BiChalkboard,
     BiMinusCircle,
     BiPlusCircle,
     BiSkipNextCircle, BiSolidInfoSquare,
     BiSolidUser,
 } from "react-icons/bi";
 import styled from 'styled-components'
-import { NavLink as Link } from "react-router-dom";
-import {BsGear} from "react-icons/bs";
+import {NavLink as Link, useNavigate} from "react-router-dom";
+import {BsGear, BsTools} from "react-icons/bs";
 import {ImLast} from "react-icons/im";
 import {BaseDirectory, readDir, readTextFile, removeFile, writeTextFile} from "@tauri-apps/api/fs";
 import yaml from "js-yaml";
@@ -15,7 +16,6 @@ import ShowOfferedLessons from "../app/events/ShowOfferedLessons.jsx";
 import {useEffect, useState} from "react";
 import Presentation from "./pdf/Presentation.jsx";
 import CreateNewNote from "../app/note/CreateNewNote.jsx";
-import {TbDatabaseImport} from "react-icons/tb";
 let a,b, about;
 let classArray = [];
 let presentationList = [];
@@ -177,16 +177,26 @@ processEntries(entries).then(() => {
 
 
 export default function NewHome() {
+    const navigate = useNavigate();
     const [Display, setDisplay] = useState("none");
     const [Use, setUse] = useState(false);
     const [DocDisplay, setDocDisplay] = useState("none");
+    const [ProgramDisplay, setProgramDisplay] = useState("none");
     const [Display_StartPresentationFor, setDisplay_StartPresentationFor] = useState("none");
     const [PresentationName, setPresentationName] = useState("");
+    const [WelcomeDisplay, setWelcomeDisplay] = useState("none");
     const [Doc, setDoc] = useState("");
     const [Class, setClass] = useState("");
     const [Presentations, setPresentations] = useState(presentationList);
     const [NoteList, setNoteList] = useState(noteList);
     const [NoteDisplay, setNoteDisplay] = useState("none");
+    const LessonProgram = () => {
+        if(WelcomeDisplay === ("none")) {
+            setWelcomeDisplay("flex")
+        } else {
+            setWelcomeDisplay("none")
+        }
+    }
     const DisplayHandler = () => {
         if(Display === ("none")) {
             setDisplay("flex")
@@ -201,6 +211,42 @@ export default function NewHome() {
             setNoteDisplay("none")
         }
     }
+    const ProgramDisplayHandler = () => {
+        if(ProgramDisplay === ("none")) {
+            setProgramDisplay("flex")
+        } else {
+            setProgramDisplay("none")
+        }
+    }
+
+    function fullScreen() {
+        let isInFullScreen = (document.fullscreenElement && true) || (document.webkitFullscreenElement && true) || (document.mozFullScreenElement && true) || (document.msFullscreenElement && true);
+
+        let docElm = document.documentElement;
+        if (!isInFullScreen) {
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            } else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            } else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            } else if (docElm.msRequestFullscreen) {
+                docElm.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    }
+
+
 
     useEffect(() => {
         const keyDownHandler = event => {
@@ -209,9 +255,12 @@ export default function NewHome() {
                 setDisplay("none");
                 setDocDisplay("none");
                 setNoteDisplay("none");
+                setProgramDisplay("none");
+                setWelcomeDisplay("none");
                 setDisplay_StartPresentationFor("none");
             }
         };
+
         document.addEventListener('keydown', keyDownHandler);
 
         return () => {
@@ -279,7 +328,19 @@ export default function NewHome() {
                                         <BsGear/>
                                     </NavLink>
                                 </li>
-                                <li onClick={() => {NoteDisplayHandler();}}>
+                               <li onClick={() => {
+                                   LessonProgram();
+                               }}>
+                                    <BiChalkboard/>
+                                </li>
+                                <li onClick={() => {
+                                    ProgramDisplayHandler();
+                                }}>
+                                    <BsTools/>
+                                </li>
+                                <li onClick={() => {
+                                    NoteDisplayHandler();
+                                }}>
                                     <BiPlusCircle/>
                                 </li>
                             </ul>
@@ -302,7 +363,6 @@ export default function NewHome() {
                                                 Başlat
                                             </span>
                                         </button>
-                                        <strong>{aa.path}</strong>
                                     </li>
                                 );
                             })}
@@ -339,12 +399,128 @@ export default function NewHome() {
             <ShowOfferedLessons display={Display} cls={Class}/>
             <CreateNewNote display={NoteDisplay}/>
             <StartPresentationFor display={Display_StartPresentationFor}/>
+            <ProgramSettings display={ProgramDisplay}/>
+            <Welcome display={WelcomeDisplay}/>
             {Use ? <Presentation file={Doc} display={DocDisplay}/> : <></>}
         </>
     );
+
+
+    function Welcome({display}) {
+        return (
+            <main style={{
+                display: display,
+                borderRadius: '5px',
+                color: "white",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: '2em',
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                background: "rgba(16, 16, 16, 0.75)",
+                placeItems: "center"
+            }}>
+                <h1>Merhaba {about.name} 👋</h1>
+                <p>Bu gün sorumlu olunan derslerin listesi</p>
+                <table className="WelcomeTable">
+                    <thead>
+                    <tr>
+                        <th>Anatomi</th>
+                        <th>Matematik</th>
+                        <th>Fizik</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>12.00</td>
+                        <td>14.00</td>
+                        <td>16.00</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td>Fizyoterapi</td>
+                        <td>TDS</td>
+                        <td>Optisyenlik</td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div style={{display: 'flex', flexDirection: 'row', gap: '1em'}}>
+                    <button className={"Continue"} onClick={() => {
+                        setWelcomeDisplay("none")
+                    }}>Devam edin
+                    </button>
+                    <button style={{width: '200px'}} className={"Continue"} onClick={() => {
+                        setWelcomeDisplay("none")
+                        navigate('/Program');
+                    }}>Bütün ders programını göster
+                    </button>
+                </div>
+            </main>
+        );
+    }
+
+    function ProgramSettings({display}) {
+        return (
+            <main style={{
+                display: display,
+                borderRadius: '5px',
+                color: "white",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: '2em',
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                background: "rgba(16, 16, 16, 0.75)",
+                placeItems: "center"}}>
+                <ul style={{
+                    listStyleType: 'none',
+                    display: 'flex',
+                    gap: '2em',
+                    width: '80%',
+                    flexWrap: 'wrap',
+                    flexDirection: 'row',
+                    justifyContent: 'center'
+                }}>
+                    <li key={Math.random()} style={{
+                        width: 'fit-content',
+                        height: 'fit-content',
+                        padding: '25px',
+                        background: 'rgba(16,16,16,0.75)',
+                        borderRadius: '5px',
+                        cursor: 'pointer'
+                    }} onClick={() => {
+                        fullScreen()
+                        setProgramDisplay("none");
+                    }}>
+                        <h1>Tam ekran yap</h1>
+                        <div className="Infos">
+                            <span
+                                style={{fontSize: '15px'}}>Programı tam ekran yapın ya da tam ekran modunu kapatın.</span>
+                        </div>
+                    </li>
+                </ul>
+            </main>
+        );
+    }
+
     function StartPresentationFor({display}) {
         return (
-            <main style={{display: display,borderRadius: '5px',color: "white", justifyContent: "center", flexDirection: "column",gap: '2em',position: "absolute", width: "100%", height: "100%", background: "rgba(16, 16, 16, 0.75)", placeItems: "center"}}>
+            <main style={{
+                display: display,
+                borderRadius: '5px',
+                color: "white",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: '2em',
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                background: "rgba(16, 16, 16, 0.75)",
+                placeItems: "center"
+            }}>
                 <ul style={{
                     listStyleType: 'none',
                     display: 'flex',
