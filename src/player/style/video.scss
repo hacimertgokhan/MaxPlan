@@ -1,0 +1,28 @@
+.YoutubeVideo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  place-items: center;
+  .Video {
+    width: fit-content;
+    height: fit-content;
+    transition: 300ms;
+  }
+  .Buttons {
+    ul {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      gap: 2em;
+      li {
+        cursor: pointer;
+        font-size: 25px;
+        color: #7de29b;
+      }
+    }
+  }
+}

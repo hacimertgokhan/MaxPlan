@@ -8,12 +8,12 @@ import {
 } from "react-icons/bi";
 import styled from 'styled-components'
 import {NavLink as Link, useNavigate} from "react-router-dom";
-import {BsGear, BsTools} from "react-icons/bs";
+import {BsGear, BsTools, BsYoutube} from "react-icons/bs";
 import {ImLast} from "react-icons/im";
 import {BaseDirectory, readDir, readTextFile, removeFile, writeTextFile} from "@tauri-apps/api/fs";
 import yaml from "js-yaml";
 import ShowOfferedLessons from "../app/events/ShowOfferedLessons.jsx";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Presentation from "./pdf/Presentation.jsx";
 import CreateNewNote from "../app/note/CreateNewNote.jsx";
 import {CreateID} from "../app/PreIDCreator.js";
@@ -39,7 +39,6 @@ export const NavLink = styled(Link)`
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0 1rem;
     height: 100%;
     transition: 300ms;
     cursor: pointer;
@@ -440,6 +439,7 @@ export default function NewHome() {
     }
 
 
+    const [ScreenLockDisplay, setScreenLockDisplay] = useState("none");
 
     useEffect(() => {
         const keyDownHandler = event => {
@@ -451,6 +451,14 @@ export default function NewHome() {
                 setProgramDisplay("none");
                 setWelcomeDisplay("none");
                 setDisplay_StartPresentationFor("none");
+            }
+            if(event.key === "Tab") {
+                event.preventDefault();
+                if(ScreenLockDisplay === "none") {
+                    setScreenLockDisplay("flex");
+                } else {
+                    setScreenLockDisplay("none");
+                }
             }
         };
         console.log(getDayName())
@@ -508,7 +516,8 @@ export default function NewHome() {
                                             <li key={not.id}>
                                                 <p>{not.name}</p>
                                                 <span>
-                                                    <button onClick={() => deleteNote(not.id, not.dname)}><BiMinusCircle/></button>
+                                                    <button
+                                                        onClick={() => deleteNote(not.id, not.dname)}><BiMinusCircle/></button>
                                                     <h5>{not.date}</h5>
                                                 </span>
                                             </li>
@@ -533,6 +542,13 @@ export default function NewHome() {
                                     ProgramDisplayHandler();
                                 }}>
                                     <BsTools/>
+                                </li>
+                                <li onClick={() => {
+                                    //ProgramDisplayHandler();
+                                }}>
+                                    <NavLink to="/Video" activestyle>
+                                        <BsYoutube/>
+                                    </NavLink>
                                 </li>
                                 <li onClick={() => {
                                     NoteDisplayHandler();
@@ -575,9 +591,11 @@ export default function NewHome() {
                                     }}>
                                         <h1>{cls.name}</h1>
                                         <div className="Infos">
-                                            <span><BiSolidUser/><span style={{fontSize: '15px'}}>{cls.tems}</span></span>
+                                            <span><BiSolidUser/><span
+                                                style={{fontSize: '15px'}}>{cls.tems}</span></span>
                                             <span><BiSolidInfoSquare/>
-                                                <span className="FakeNumber" style={{fontSize: '15px'}}>0000000000</span>
+                                                <span className="FakeNumber"
+                                                      style={{fontSize: '15px'}}>0000000000</span>
                                                 <span className="RealNumber" style={{fontSize: '15px'}}>{cls.num}</span>
                                             </span>
                                             <span><ImLast/><span style={{fontSize: '15px'}}>{cls.lp}</span></span>
@@ -597,11 +615,10 @@ export default function NewHome() {
             <StartPresentationFor display={Display_StartPresentationFor}/>
             <ProgramSettings display={ProgramDisplay}/>
             <Welcome display={WelcomeDisplay}/>
+            <ScreenLock display={ScreenLockDisplay}/>
             {Use ? <Presentation file={Doc} display={DocDisplay}/> : <></>}
         </>
     );
-
-
 
 
     function Welcome({display}) {
@@ -692,6 +709,32 @@ export default function NewHome() {
                         </div>
                     </li>
                 </ul>
+            </main>
+        );
+    }
+
+
+
+    function ScreenLock({display}) {
+        return (
+            <main style={{
+                display: display,
+                borderRadius: '5px',
+                color: "white",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: '2em',
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                transition: '400ms',
+                background: "rgba(16, 16, 16)",
+                placeItems: "center"
+            }} onClick={() => {
+                setScreenLockDisplay("none");
+            }}>
+                <h1 style={{fontSize: '150px', fontStyle: "italic", color: 'lightgreen', cursor: 'pointer'}}>MaxPlan</h1>
+                <p style={{fontSize: '25px', fontStyle: "italic", color: 'lightgreen', cursor: 'pointer', transform: 'translateY(-200%)'}}>Ekran kilit modunu kapatmak için ekranın herhangi bir yerine tıklayınız.</p>
             </main>
         );
     }

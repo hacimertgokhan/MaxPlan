@@ -290,6 +290,22 @@
           border-radius: 5px;
           background: rgba(32, 32, 32, 0.5);
           position: relative; }
+          .MaxPlanSettings ul li .Presentations .Detail .RealConnection {
+            opacity: 0;
+            position: absolute;
+            transition: 300ms;
+            bottom: 15%;
+            color: white;
+            left: 6.5%;
+            font-size: 11px; }
+          .MaxPlanSettings ul li .Presentations .Detail .FakeConnection {
+            transition: 300ms;
+            opacity: 1;
+            position: absolute;
+            bottom: 15%;
+            color: white;
+            left: 6.5%;
+            font-size: 11px; }
           .MaxPlanSettings ul li .Presentations .Detail h1 {
             left: 5%;
             top: 15%;
@@ -327,5 +343,9 @@
             .MaxPlanSettings ul li .Presentations .Detail .Remove button:hover {
               color: indianred;
               transform: rotateZ(12deg); }
+        .MaxPlanSettings ul li .Presentations .Detail:hover .RealConnection {
+          opacity: 1; }
+        .MaxPlanSettings ul li .Presentations .Detail:hover .FakeConnection {
+          opacity: 0; }
 
 /*# sourceMappingURL=newsettings.css.map */

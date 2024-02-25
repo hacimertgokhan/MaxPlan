@@ -11,6 +11,7 @@ import EditClass from "../../app/edit/EditClass.jsx";
 import AddNewClass from "../../app/add/AddNewClass.jsx";
 let a,b,about;
 let classArray = [];
+let pdfArray = [];
 
 const loadConfig = async () => {a = await readTextFile('MaxPlan//config.yml', {dir: BaseDirectory.Document});b = yaml.load(a);}
 
@@ -20,6 +21,36 @@ loadConfig().then(() => {
         mail: b.mail_adresi,
         lesson: b.ana_bransi
     }
+});
+
+const addPDF = (name,less,id) => {
+    const newCont = {
+        id: id,
+        name: name,
+        conn: less,
+    };
+    pdfArray.push(newCont);
+};
+
+const presentations = await readDir('MaxPlan//PDF//', { dir: BaseDirectory.Document, recursive: true });
+
+async function processPresentations(entries) {
+    let contents;
+    for (const entry of entries) {
+        contents = await readTextFile(`MaxPlan//PDF//${entry.name}`, {
+            dir: BaseDirectory.Document,
+            recursive: true
+        });
+        const parsed = yaml.load(contents);
+        if(!classArray.includes(parsed.pdf_adi)) {
+            addPDF(parsed.pdf_adi, parsed.pdf_baglantisi, parsed.pdf_id);
+            console.log(classArray)
+        }
+
+    }
+}
+processPresentations(presentations).then(() => {
+    console.log(presentations);
 });
 
 const addContent = (name,less,tems,num) => {
@@ -66,6 +97,7 @@ export default function NewSettings() {
     const [ClassName, setClassName] = useState("");
     const [Edit, setEdit] = useState("");
     const [clsState, setclsState] = useState(classArray);
+    const [preState, setpreState] = useState(pdfArray);
     function DisplayHandler() {
         if(Display === "none") {
             setDisplay("flex");
@@ -132,6 +164,15 @@ export default function NewSettings() {
         }
     }
 
+    const randStr = (len) => {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        let result = "";
+        for(let a = 0;a<len; a++) {
+            result += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return result;
+    }
+
     return (
       <main className={"MaxPlanSettings"}>
         <div onClick={refresh} className="Refresh"><BiRefresh/></div>
@@ -139,16 +180,29 @@ export default function NewSettings() {
             <li>
                 <h1 className={"h1"}>Sunumlar</h1>
                 <span className="Presentations">
-                    <span className="Detail">
-                        <h1><BiSolidBook/> <span style={{fontSize: '20px', color: 'white'}}>Kaslar</span></h1>
-                        <button><BiPencil/></button>
-                        <span className="Remove">
-                            <button><BiSolidTrash/></button>
-                        </span>
-                    </span>
+                    {
+                        preState?.map((pdf) => {
+                            return (
+                                <span key={pdf.id} className="Detail">
+                                    <h1><BiSolidBook/> <span style={{fontSize: '20px', color: 'white'}}>{pdf.name}</span></h1>
+                                    <br/>
+                                    <span className="RealConnection">
+                                        {pdf.conn}
+                                    </span>
+                                    <span className={"FakeConnection"}>www.{randStr(20)}.{randStr(3)}</span>
+                                    <button><BiPencil/></button>
+                                    <span className="Remove">
+                                        <button><BiSolidTrash/></button>
+                                    </span>
+                                </span>
+                            );
+                        })
+                    }
                 </span>
                 <span className="AddPDF">
-                    <button onClick={() => {open.current.click()}}>
+                    <button onClick={() => {
+                        open.current.click()
+                    }}>
                         <input ref={open} accept=".pdf" type="file" style={{display: "none"}}/>
                         Yeni Sunum Ekle
                     </button>
@@ -230,7 +284,7 @@ export default function NewSettings() {
                 <div onClick={() => {
                     refresh();
                 }} className={"ReturnHome"}>
-                    <NavLink to="/" activestyle>
+                    <NavLink to="/Anasayfa" activestyle>
                         <FaGraduationCap/>
                     </NavLink>
                 </div>

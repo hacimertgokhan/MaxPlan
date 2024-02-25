@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.html {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 1000ms;
+  background: rgb(16,16,16);
+}
+.MaxPlanScreen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  h1 {
+    transition: 300ms;
+    font-style: italic;
+    animation: changeh1 2s infinite;
+    font-size: 150px;
+    color: white;
+  }
+}
+
+@keyframes changeh1 {
+  0% {
+    color: white;
+  }
+  25% {
+    color: #9dfeb7;
+    filter: drop-shadow(0 0 100px #9dfeb7);
+  }
+  50% {
+    color: #7de29b;
+  }
+  75%{
+    color: #50cb70;
+  }
+  100% {
+    color: white;
+  }
+}

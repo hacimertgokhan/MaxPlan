@@ -184,6 +184,7 @@
           display: flex;
           flex-direction: column;
           gap: 1em;
+
           .Lesson {
             width: 100%;
             height: 35px;
@@ -307,6 +308,24 @@
           border-radius: 5px;
           background: rgba(32, 32, 32, 0.50);
           position: relative;
+          .RealConnection {
+            opacity: 0;
+            position: absolute;
+            transition: 300ms;
+            bottom: 15%;
+            color: white;
+            left: 6.5%;
+            font-size: 11px;
+          }
+          .FakeConnection {
+            transition: 300ms;
+            opacity: 1;
+            position: absolute;
+            bottom: 15%;
+            color: white;
+            left: 6.5%;
+            font-size: 11px;
+          }
           h1 {
             left: 5%;
             top: 15%;
@@ -347,6 +366,14 @@
               color: indianred;
               transform: rotateZ(12deg);
             }
+          }
+        }
+        .Detail:hover {
+          .RealConnection {
+            opacity: 1;
+          }
+          .FakeConnection {
+            opacity: 0;
           }
         }
       }

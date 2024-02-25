@@ -234,7 +234,7 @@ export default function Program() {
           <div className="Programs">
             <div className="Showcase">
                 <span className="EditProgram"><BiEdit/></span>
-                <span className="ReturnHome" onClick={() => {navigate('/')}}><BiHome/></span>
+                <span className="ReturnHome" onClick={() => {navigate('/Anasayfa')}}><BiHome/></span>
                 <h1>Ders Programınız</h1>
                 <p>Bir haftada ortalama {Calculate} saat ders işliyorsunuz</p>
                 <p style={{fontSize: '13px'}}>En yoğun gününüz %{HighDay.a} oran, {HighDay.c} saat ile <span style={{color: 'lightgreen'}}>{HighDay.b}</span>.</p>
