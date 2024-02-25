@@ -3,11 +3,55 @@ import {BiDotsHorizontal, BiFullscreen, BiImage, BiSolidVideo, BiSquare} from "r
 import {NavLink} from "../main/components/Navigation.jsx";
 import {FaGraduationCap} from "react-icons/fa";
 import {useEffect, useRef, useState} from "react";
+import {BaseDirectory, readDir, readTextFile} from "@tauri-apps/api/fs";
+import yaml from "js-yaml";
+let videoList = [];
+
+/*
+
+    Video yükleyicisi:Başlangıç
+
+ */
+
+const addVideo = (name,key) => {
+    const newCont = {
+        id: Math.random(),
+        name: name,
+        key: key,
+    };
+    videoList.push(newCont);
+};
+const videos = await readDir('MaxPlan//Videos//', { dir: BaseDirectory.Document, recursive: true });
+async function processVideos(entries) {
+    let contents;
+    for (const entry of entries) {
+        contents = await readTextFile(`MaxPlan//Videos//${entry.name}`, {
+            dir: BaseDirectory.Document,
+            recursive: true
+        });
+        const parsed = yaml.load(contents);
+        if(!videoList.includes(parsed.name)) {
+            addVideo(parsed.name, parsed.key);
+            console.log(videoList)
+        }
+
+    }
+}
+
+/*
+
+    Video yükleyicisi:Bitiş
+
+ */
+
+processVideos(videos).then(() => {
+    console.log(videos);
+});
 export default function WhiteBoard() {
     const [Display, setDisplay] = useState("none");
     const [Type, setType] = useState("");
     const imgLoader = useRef();
-    const videoLoader = useRef();
+    const [VideoList, setVideoList] = useState(videoList);
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageUrl, setImageUrl] = useState("");
     const [Width, setWidth] = useState(200);
@@ -58,7 +102,7 @@ export default function WhiteBoard() {
         return (
             <div>
                 <iframe
-                    style={{transform: `translate(${X}%, ${Y}%)`}} width={Width} height={Height}
+                    style={{transform: `translate(${X*0.2}%, ${Y*0.2}%)`}} width={Width*0.7} height={Height*0.7}
                     src={`https://www.youtube.com/embed/${link}`}
                     title="YouTube video player"
                     frameBorder="0"
@@ -88,16 +132,34 @@ export default function WhiteBoard() {
                 <input
                     type={"text"}
                     value={videoLink}
+                    placeholder={"Girilen değer bir anahtar olmalı."}
                     style={{width: '230px', height: '25px', background: "#fff", outline: "none", border: "none"}}
                     onChange={(e) => {
                         setVideoLink(e.currentTarget.value)
                     }}
                 />
+                <h1 style={{fontSize: '25px'}}><span style={{color: 'lightgreen'}}>Ya da varolan videoyu seçiniz.</span></h1>
+                <div className="SelectVideoForBoard">
+                    <ul>
+                        {
+                            VideoList?.map((b) => {
+                                return (
+                                    <li key={Math.random()} onClick={() => {
+                                        setVideoLink(b.key)
+                                        setDisplay("none");
+                                    }}>
+                                        <strong>{b.name}</strong>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+                </div>
+
                 <button onClick={() => {
                     setDisplay("none")
                 }} style={{
                     width: '100px',
-                    marginTop: '100px',
                     cursor: 'pointer',
                     background: "#50cb70",
                     height: '25px',
@@ -143,7 +205,7 @@ export default function WhiteBoard() {
                             <BiImage/>
                             <input
                                 accept="image/*"
-                                type="text"
+                                type="file"
                                 ref={imgLoader}
                                 style={{display: 'none'}}
                                 onChange={(e) => setSelectedImage(e.target.files[0])}
@@ -184,8 +246,8 @@ export default function WhiteBoard() {
                         <input type={"range"} min={0} max={500} onChange={(e) => setY(e.currentTarget.value)}/>
                     </label>
                     <label>
-                        <button onClick={() => {setImageUrl("")}}>
-                            Fotoğrafı Kaldır
+                        <button onClick={() => {setImageUrl("");setVideoLink("")}}>
+                            Fotoğrafı & Videoyu Kaldır
                         </button>
                     </label>
                 </div>

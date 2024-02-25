@@ -22,7 +22,7 @@
       right: 2%;
       width: 200px;
       background: transparent;
-      z-index: 50;
+      z-index: 12;
       height: 150px; }
       .Board .Draw .RightCorner label {
         margin-top: 15px;
@@ -52,7 +52,7 @@
       opacity: 1; }
     .Board .Draw img {
       transition: 300ms;
-      z-index: 24; }
+      z-index: 10; }
     .Board .Draw .Grid {
       background-color: transparent;
       background-image: linear-gradient(0deg, transparent 24%, #101010 25%, #101010 26%, transparent 27%, transparent 74%, #101010 75%, #101010 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #101010 25%, #101010 26%, transparent 27%, transparent 74%, #101010 75%, #101010 76%, transparent 77%, transparent);
@@ -60,7 +60,7 @@
       background-size: 40px 40px; }
     .Board .Draw .Line {
       background-color: transparent;
-      background-image: linear-gradient(0deg, transparent 24%, #101010 25%, #101010 26%, transparent 27%, transparent 74%, #101010 75%, #101010 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #101010 25%, #101010 26%, transparent 27%, transparent 74%, #101010 75%, #101010 76%, transparent 77%, transparent);
+      background-image: linear-gradient(0deg, transparent 24%, #101010 25%, #101010 26%, transparent 27%, transparent 74%, #101010 75%, #101010 76%, transparent 77%, transparent);
       height: 100%;
       background-size: 5px 40px; }
     .Board .Draw .Dot {
@@ -112,5 +112,40 @@
     width: 5%;
     background: #101010;
     transform: translateX(0); }
+
+.SelectVideoForBoard {
+  width: 1000px;
+  height: 400px; }
+  .SelectVideoForBoard ul {
+    display: flex;
+    width: 100%;
+    list-style-type: none;
+    overflow: auto;
+    place-items: center;
+    gap: 3em;
+    flex-direction: column;
+    height: 100%; }
+    .SelectVideoForBoard ul li {
+      width: 650px;
+      height: 150px;
+      position: relative;
+      background: rgba(32, 32, 32, 0.25);
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      transition: 300ms;
+      cursor: pointer;
+      place-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 15px; }
+      .SelectVideoForBoard ul li strong {
+        display: flex;
+        place-items: center;
+        justify-content: center; }
+    .SelectVideoForBoard ul li:hover {
+      transform: scale(1.05);
+      color: #9dfeb7;
+      background: rgba(64, 64, 64, 0.25); }
 
 /*# sourceMappingURL=whiteboard.css.map */

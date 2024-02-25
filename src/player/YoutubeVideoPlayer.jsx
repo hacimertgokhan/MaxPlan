@@ -51,11 +51,11 @@ processVideos(videos).then(() => {
 });
 
 export default function YoutubeVideoPlayer() {
-    const [ID, setID] = useState("");
     const [Focus, setFocus] = useState("");
     const navigate = useNavigate();
     const [VideoList, setVideoList] = useState(videoList);
     const [VideoSelector, setVideoSelector] = useState("flex");
+    const [ID, setID] = useState("");
     const VideoDisplay = () => {
         if(VideoSelector === ("none")) {
             setVideoSelector("flex")
