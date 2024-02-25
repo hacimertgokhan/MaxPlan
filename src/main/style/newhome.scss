@@ -64,7 +64,9 @@ html {
           border-radius: 5px;
           width: 300px;
           height: 150px;
+          transition: 300ms;
           position: relative;
+          cursor: pointer;
           background-color: rgba(32, 32, 32, 0.25);
           h1 {
             color: white;
@@ -102,6 +104,11 @@ html {
             transform: scale(1.02);
             color: #24dd52;
           }
+        }
+        li:hover {
+          transform: scale(1.01);
+          color: #9dfeb7;
+          background: rgba(64, 64, 64, 0.25);
         }
       }
     }
@@ -374,13 +381,33 @@ html {
 
 .WelcomeTable {
   width: 800px;
-  height: 125px;
-  text-align: center;
-
-  table {
-    tr {
+  height: 200px;
+  ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    list-style-type: none;
+    gap: 3em;
+    flex-direction: row;
+    height: 100%;
+    li {
       width: 200px;
-      height: 100px;
+      height: 200px;
+      position: relative;
+      background: rgba(32, 32, 32, 0.25);
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      transition: 300ms;
+      cursor: pointer;
+      place-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    li:hover {
+      transform: scale(1.05);
+      color: #9dfeb7;
+      background: rgba(64, 64, 64, 0.25);
     }
   }
 }

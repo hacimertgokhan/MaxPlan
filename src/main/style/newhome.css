@@ -61,7 +61,9 @@ html {
           border-radius: 5px;
           width: 300px;
           height: 150px;
+          transition: 300ms;
           position: relative;
+          cursor: pointer;
           background-color: rgba(32, 32, 32, 0.25); }
           .MaxPlan .Management .Presentation ul li h1 {
             color: white;
@@ -96,6 +98,10 @@ html {
           .MaxPlan .Management .Presentation ul li button:active {
             transform: scale(1.02);
             color: #24dd52; }
+        .MaxPlan .Management .Presentation ul li:hover {
+          transform: scale(1.01);
+          color: #9dfeb7;
+          background: rgba(64, 64, 64, 0.25); }
     .MaxPlan .Management .Classes {
       width: 50%;
       height: 100%;
@@ -319,11 +325,32 @@ html {
 
 .WelcomeTable {
   width: 800px;
-  height: 125px;
-  text-align: center; }
-  .WelcomeTable table tr {
-    width: 200px;
-    height: 100px; }
+  height: 200px; }
+  .WelcomeTable ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    list-style-type: none;
+    gap: 3em;
+    flex-direction: row;
+    height: 100%; }
+    .WelcomeTable ul li {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      background: rgba(32, 32, 32, 0.25);
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      transition: 300ms;
+      cursor: pointer;
+      place-items: center;
+      justify-content: center;
+      flex-direction: column; }
+    .WelcomeTable ul li:hover {
+      transform: scale(1.05);
+      color: #9dfeb7;
+      background: rgba(64, 64, 64, 0.25); }
 
 .Continue {
   width: 100px;

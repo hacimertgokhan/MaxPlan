@@ -39,10 +39,28 @@ html {
       text-align: center;
       margin-top: 50px;
     }
+    p {
+      color: white;
+      text-align: center;
+    }
     .ReturnHome {
       position: absolute;
       cursor: pointer;
       left: 3%;
+      top: 5%;
+      font-size: 30px;
+      color: #50cb70;
+      display: flex;
+      place-items: center;
+      gap: 0.2em;
+      p {
+        font-size: 18px;
+      }
+    }
+    .ProgramInformation {
+      position: absolute;
+      cursor: pointer;
+      right: 6%;
       top: 5%;
       font-size: 30px;
       color: #50cb70;
@@ -98,7 +116,6 @@ html {
           gap: 1em;
           flex-direction: row;
           justify-content: center;
-          gap: 1em;
           flex-wrap: wrap;
           overflow: auto;
           margin-top: 15px;

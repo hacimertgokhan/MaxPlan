@@ -16,6 +16,7 @@ import ShowOfferedLessons from "../app/events/ShowOfferedLessons.jsx";
 import {useEffect, useState} from "react";
 import Presentation from "./pdf/Presentation.jsx";
 import CreateNewNote from "../app/note/CreateNewNote.jsx";
+import {CreateID} from "../app/PreIDCreator.js";
 let a,b, about;
 let classArray = [];
 let presentationList = [];
@@ -176,6 +177,105 @@ processEntries(entries).then(() => {
 });
 
 
+/*
+
+    getDAY Method
+
+ */
+
+let pzt = [];
+let sl = [];
+let crs = [];
+let prs = [];
+let cm = [];
+
+
+const addForMonday = (lesson,time,cls,name,id) => {
+    const newCont = {
+        id: id,
+        day: "Pazartesi",
+        lesson: lesson,
+        time: time,
+        cls: cls,
+        name: name,
+    };
+    pzt.push(newCont);
+};
+
+const addForTuesday = (lesson,time,cls,name,id) => {
+    const newCont = {
+        id: id,
+        day: "Salı",
+        lesson: lesson,
+        time: time,
+        cls: cls,
+        name: name,
+    };
+    sl.push(newCont);
+};
+
+const addForWednesday = (lesson,time,cls,name,id) => {
+    const newCont = {
+        id: id,
+        day: "Çarşamba",
+        lesson: lesson,
+        time: time,
+        cls: cls,
+        name: name,
+    };
+    crs.push(newCont);
+};
+
+const addForThursday = (lesson,time,cls,name,id) => {
+    const newCont = {
+        id: id,
+        day: "Perşembe",
+        lesson: lesson,
+        time: time,
+        cls: cls,
+        name: name,
+    };
+    prs.push(newCont);
+};
+
+const addForFriday = (lesson,time,cls,name,id) => {
+    const newCont = {
+        id: id,
+        day: "Cuma",
+        lesson: lesson,
+        time: time,
+        cls: cls,
+        name: name,
+    };
+    cm.push(newCont);
+};
+
+const dayEntries = await readDir('MaxPlan//Program//', { dir: BaseDirectory.Document, recursive: true });
+async function processDay(entries) {
+    let contents;
+    for (const entry of entries) {
+        contents = await readTextFile(`MaxPlan//Program//${entry.name}`, {
+            dir: BaseDirectory.Document,
+            recursive: true
+        });
+        const parsed = yaml.load(contents);
+        if(parsed.gun === "Pazartesi") {
+            addForMonday(parsed.ders, parsed.aralik, parsed.sinif, parsed.name,CreateID());
+        } else if(parsed.gun === "Salı") {
+            addForTuesday(parsed.ders, parsed.aralik, parsed.sinif, parsed.name,CreateID());
+        } else if(parsed.gun === "Çarşamba") {
+            addForWednesday(parsed.ders, parsed.aralik, parsed.sinif, parsed.name,CreateID());
+        } else if(parsed.gun === "Perşembe") {
+            addForThursday(parsed.ders, parsed.aralik, parsed.sinif, parsed.name,CreateID());
+        } else if(parsed.gun === "Cuma") {
+            addForFriday(parsed.ders, parsed.aralik, parsed.sinif, parsed.name,CreateID());
+        }
+    }
+}
+
+processDay(dayEntries).then(() => {});
+
+
 export default function NewHome() {
     const navigate = useNavigate();
     const [Display, setDisplay] = useState("none");
@@ -246,6 +346,99 @@ export default function NewHome() {
         }
     }
 
+    const date = new Date();
+    const getDayName = () => {
+        const aab = date.getDay();
+        const abb = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+        return abb[aab];}
+    const [Pazartesi, setPazartesi] = useState(pzt);
+    const [Sali, setSali] = useState(sl);
+    const [Carsamba, setCarsamba] = useState(crs);
+    const [Persembe, setPersembe] = useState(prs);
+    const [Cuma, setCuma] = useState(cm);
+    const [DayProgram, setDayProgram] = useState([]);
+
+    const getDayProgram = (DayName) => {
+        if(DayName === "Pazartesi") {
+            Pazartesi?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Pazartesi.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        } else if(DayName === "Pazar") {
+            Pazartesi?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Pazartesi.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        } else if(DayName === "Cumartesi") {
+            Pazartesi?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Pazartesi.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        } else if(DayName === "Salı") {
+            Sali?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Sali.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        } else if(DayName === "Çarşamba") {
+            Carsamba?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Carsamba.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        } else if(DayName === "Perşembe") {
+            Persembe?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Persembe.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        } else if(DayName === "Cuma") {
+            Cuma?.map((a) => {
+                const newItem = {
+                    cls: a.cls,
+                    lesson: a.lesson,
+                    time: a.time
+                }
+                if(DayProgram.length < Cuma.length) {
+                    DayProgram.push(newItem);
+                }
+            })
+        }
+    }
+
 
 
     useEffect(() => {
@@ -260,6 +453,9 @@ export default function NewHome() {
                 setDisplay_StartPresentationFor("none");
             }
         };
+        console.log(getDayName())
+
+        getDayProgram(getDayName());
 
         document.addEventListener('keydown', keyDownHandler);
 
@@ -406,6 +602,8 @@ export default function NewHome() {
     );
 
 
+
+
     function Welcome({display}) {
         return (
             <main style={{
@@ -423,29 +621,21 @@ export default function NewHome() {
             }}>
                 <h1>Merhaba {about.name} 👋</h1>
                 <p>Bu gün sorumlu olunan derslerin listesi</p>
-                <table className="WelcomeTable">
-                    <thead>
-                    <tr>
-                        <th>Anatomi</th>
-                        <th>Matematik</th>
-                        <th>Fizik</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>12.00</td>
-                        <td>14.00</td>
-                        <td>16.00</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td>Fizyoterapi</td>
-                        <td>TDS</td>
-                        <td>Optisyenlik</td>
-                    </tr>
-                    </tfoot>
-                </table>
+                <div className="WelcomeTable">
+                    <ul>
+                        {
+                            DayProgram?.map((b) => {
+                                return (
+                                    <li>
+                                        <strong>{b.cls}</strong>
+                                        <p>{b.lesson}</p>
+                                        <p>{b.time}</p>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+                </div>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '1em'}}>
                     <button className={"Continue"} onClick={() => {
                         setWelcomeDisplay("none")
