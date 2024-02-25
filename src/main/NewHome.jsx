@@ -2,7 +2,7 @@ import './style/newhome.css';
 import {
     BiAccessibility, BiChalkboard,
     BiMinusCircle,
-    BiPlusCircle,
+    BiPlusCircle, BiScreenshot,
     BiSkipNextCircle, BiSolidInfoSquare,
     BiSolidUser,
 } from "react-icons/bi";
@@ -53,6 +53,8 @@ loadConfig().then(() => {
         lesson: b.ana_bransi
     }
 });
+
+
 
 /*
 
@@ -286,9 +288,18 @@ export default function NewHome() {
     const [WelcomeDisplay, setWelcomeDisplay] = useState("none");
     const [Doc, setDoc] = useState("");
     const [Class, setClass] = useState("");
+    const [VideoSelector, setVideoSelector] = useState("none");
+    const [SelectedVideo, setSelectedVideo] = useState("");
     const [Presentations, setPresentations] = useState(presentationList);
     const [NoteList, setNoteList] = useState(noteList);
     const [NoteDisplay, setNoteDisplay] = useState("none");
+    const VideoDisplay = () => {
+        if(VideoSelector === ("none")) {
+            setVideoSelector("flex")
+        } else {
+            setVideoSelector("none")
+        }
+    }
     const LessonProgram = () => {
         if(WelcomeDisplay === ("none")) {
             setWelcomeDisplay("flex")
@@ -543,9 +554,7 @@ export default function NewHome() {
                                 }}>
                                     <BsTools/>
                                 </li>
-                                <li onClick={() => {
-                                    //ProgramDisplayHandler();
-                                }}>
+                                <li>
                                     <NavLink to="/Video" activestyle>
                                         <BsYoutube/>
                                     </NavLink>
@@ -554,6 +563,11 @@ export default function NewHome() {
                                     NoteDisplayHandler();
                                 }}>
                                     <BiPlusCircle/>
+                                </li>
+                                <li>
+                                    <NavLink to="/Board" activestyle>
+                                        <BiScreenshot/>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -619,6 +633,8 @@ export default function NewHome() {
             {Use ? <Presentation file={Doc} display={DocDisplay}/> : <></>}
         </>
     );
+
+
 
 
     function Welcome({display}) {

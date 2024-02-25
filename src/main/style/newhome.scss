@@ -411,6 +411,57 @@ html {
     }
   }
 }
+.SelectVideo {
+  width: 1000px;
+  height: 400px;
+  ul {
+    display: flex;
+    width: 100%;
+    list-style-type: none;
+    overflow: auto;
+    place-items: center;
+    gap: 3em;
+    flex-direction: column;
+    height: 100%;
+    li {
+      width: 650px;
+      height: 150px;
+      position: relative;
+      background: rgba(32, 32, 32, 0.25);
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      transition: 300ms;
+      cursor: pointer;
+      place-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 15px;
+      strong {
+        display: flex;
+        place-items: center;
+        justify-content: center;
+      }
+    }
+    li:hover {
+      transform: scale(1.05);
+      color: #9dfeb7;
+      background: rgba(64, 64, 64, 0.25);
+    }
+  }
+  button {
+    width: 100px;
+    height: 25px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: #7de29b;
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 15%;
+    margin: auto;
+  }
+}
 
 .Continue {
   width: 100px;
