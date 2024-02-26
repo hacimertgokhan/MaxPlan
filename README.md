@@ -54,5 +54,5 @@ Dağıtımların canlı takibi ve dökümantasyon için kodlandı.
 ```
 
 # ThreeJS 3 Boyutlu Görsel
-![threejs1.png](..%2FPictures%2Fthreejs1.png)
-![threejs0.png](..%2FPictures%2Fthreejs0.png) 
+![threejs1.png](doc%2Fthreejs1.png)
+![threejs0.png](doc%2Fthreejs0.png)
