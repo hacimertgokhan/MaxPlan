@@ -48,7 +48,11 @@ Dağıtımların canlı takibi ve dökümantasyon için kodlandı.
  [0.1.0]: Random String ile sonsuzlaştırılabilen notlar.
 ```
 ## Bilinen hatalar
-``` 
+```
     [MaxPlanPFC]: MaxPlanPFC Video ve Not dosyası oluşturmuyor, bu nedenle bunun direkt olarak MaxPlan Quarkın oluşturması gerek.
     |--> Düzeltilmeme nedeni: Yapılacak en son iş. 
 ```
+
+# ThreeJS 3 Boyutlu Görsel
+![threejs1.png](..%2FPictures%2Fthreejs1.png)
+![threejs0.png](..%2FPictures%2Fthreejs0.png) 
