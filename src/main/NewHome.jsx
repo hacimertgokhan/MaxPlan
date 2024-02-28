@@ -8,7 +8,7 @@ import {
 } from "react-icons/bi";
 import styled from 'styled-components'
 import {NavLink as Link, useNavigate} from "react-router-dom";
-import {BsGear, BsTools, BsYoutube} from "react-icons/bs";
+import {BsGear, BsTools, BsWhatsapp, BsYoutube} from "react-icons/bs";
 import {ImLast} from "react-icons/im";
 import {BaseDirectory, readDir, readTextFile, removeFile, writeTextFile} from "@tauri-apps/api/fs";
 import yaml from "js-yaml";
@@ -17,6 +17,8 @@ import {useEffect, useRef, useState} from "react";
 import Presentation from "./pdf/Presentation.jsx";
 import CreateNewNote from "../app/note/CreateNewNote.jsx";
 import {CreateID} from "../app/PreIDCreator.js";
+import {GrThreeD} from "react-icons/gr";
+import {SiGmail} from "react-icons/si";
 let a,b, about;
 let classArray = [];
 let presentationList = [];
@@ -529,7 +531,7 @@ export default function NewHome() {
                                                 <span>
                                                     <button
                                                         onClick={() => deleteNote(not.id, not.dname)}><BiMinusCircle/></button>
-                                                    <h5>{not.date}</h5>
+                                                    <h5 style={{fontSize: '12px'}}>{not.date}</h5>
                                                 </span>
                                             </li>
                                         );
@@ -539,6 +541,11 @@ export default function NewHome() {
                         </div>
                         <div className="Items">
                             <ul>
+                                <li>
+                                    <NavLink to="/3D" activestyle>
+                                        <GrThreeD/>
+                                    </NavLink>
+                                </li>
                                 <li>
                                     <NavLink to="/Ayarlar" activestyle>
                                         <BsGear/>
@@ -581,14 +588,24 @@ export default function NewHome() {
                                 return (
                                     <li key={aa.id}>
                                         <h1>{aa.name}</h1>
-                                        <button onClick={() => {
-                                            LoadPresentation(aa.path);
-                                            setPresentationName(aa.name);
-                                        }}><BiSkipNextCircle/>
-                                            <span style={{fontSize: '20px'}}>
+                                        <div className="PresenButtons">
+                                            <button onClick={() => {
+                                                LoadPresentation(aa.path);
+                                                setPresentationName(aa.name);
+                                            }}><BiSkipNextCircle/>
+                                                <span style={{fontSize: '15px'}}>
                                                 Başlat
                                             </span>
-                                        </button>
+                                            </button>
+                                            <button>
+                                                <BsWhatsapp style={{fontSize: '22px'}}/> <span
+                                                style={{fontSize: '15px'}}>Paylaş</span>
+                                            </button>
+                                            <button>
+                                                <SiGmail style={{fontSize: '22px'}}/> <span
+                                                style={{fontSize: '15px'}}>Paylaş</span>
+                                            </button>
+                                        </div>
                                     </li>
                                 );
                             })}

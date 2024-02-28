@@ -14,7 +14,6 @@ const set = async (classname,path, newvalue) => {
     } catch (e) {
         console.log(e);
     }
-    window.location.reload()
 }
 
 export default function EditClass({display, _old, clsname}) {
@@ -27,6 +26,8 @@ export default function EditClass({display, _old, clsname}) {
     function doSet() {
         if(!Input.trim()) return;
         set(clsname,_old, Input);
+        window.location.reload()
+
     }
 
     return (

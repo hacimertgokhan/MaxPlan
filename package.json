@@ -27,7 +27,8 @@
     "react-youtube": "^10.1.0",
     "rollup-plugin-copy": "^3.5.0",
     "styled-components": "^6.1.8",
-    "tauri": "^0.15.0"
+    "tauri": "^0.15.0",
+    "three": "^0.161.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.8",

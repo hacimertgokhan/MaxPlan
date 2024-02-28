@@ -55,13 +55,17 @@ html {
         width: 100%;
         flex-wrap: wrap;
         place-items: center;
-        flex-direction: column;
-        gap: 1em; }
+        flex-direction: column; }
         .MaxPlan .Management .Presentation ul li {
           border-radius: 5px;
-          width: 300px;
-          height: 150px;
+          width: 350px;
+          height: 175px;
           transition: 300ms;
+          display: flex;
+          flex-direction: column;
+          gap: 2em;
+          justify-content: center;
+          place-items: center;
           position: relative;
           cursor: pointer;
           background-color: rgba(32, 32, 32, 0.25); }
@@ -69,6 +73,7 @@ html {
             color: white;
             font-weight: 300;
             font-size: 20px;
+            transform: translateY(-50%);
             text-align: center; }
           .MaxPlan .Management .Presentation ul li strong {
             position: absolute;
@@ -80,24 +85,33 @@ html {
             left: 0;
             right: 0;
             width: fit-content; }
-          .MaxPlan .Management .Presentation ul li button {
-            background: transparent;
-            outline: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            position: absolute;
-            bottom: 0;
+          .MaxPlan .Management .Presentation ul li .PresenButtons {
             display: flex;
-            place-items: center;
-            margin: 40px 25px;
-            cursor: pointer;
-            transition: 300ms; }
-          .MaxPlan .Management .Presentation ul li button:hover {
-            color: #50cb70; }
-          .MaxPlan .Management .Presentation ul li button:active {
-            transform: scale(1.02);
-            color: #24dd52; }
+            flex-direction: row;
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            justify-content: center;
+            gap: 1em; }
+            .MaxPlan .Management .Presentation ul li .PresenButtons button {
+              background: transparent;
+              outline: none;
+              border: none;
+              color: white;
+              font-size: 28px;
+              bottom: 0;
+              display: flex;
+              gap: 0.1em;
+              place-items: center;
+              cursor: pointer;
+              transition: 300ms; }
+            .MaxPlan .Management .Presentation ul li .PresenButtons button:hover {
+              color: #50cb70; }
+            .MaxPlan .Management .Presentation ul li .PresenButtons button:active {
+              transform: scale(1.02);
+              color: #24dd52; }
         .MaxPlan .Management .Presentation ul li:hover {
           transform: scale(1.01);
           color: #9dfeb7;
@@ -126,7 +140,7 @@ html {
         .MaxPlan .Management .Classes ul li {
           border-radius: 5px;
           width: 300px;
-          height: 150px;
+          height: 175px;
           position: relative;
           cursor: pointer;
           transition: 400ms;
@@ -149,11 +163,13 @@ html {
               gap: 0.2em;
               place-items: center; }
               .MaxPlan .Management .Classes ul li .Infos span .RealNumber {
+                margin-left: 5px;
                 transition: 300ms;
                 opacity: 0;
                 position: absolute;
                 left: 16%; }
               .MaxPlan .Management .Classes ul li .Infos span .FakeNumber {
+                margin-left: 5px;
                 transition: 300ms;
                 opacity: 1; }
           .MaxPlan .Management .Classes ul li .Infos:hover span .RealNumber {
@@ -186,10 +202,10 @@ html {
     place-items: center;
     flex-direction: column; }
     .MaxPlan .Panel .Notes {
-      width: 315px;
-      height: 315px;
+      width: 350px;
+      height: 350px;
       margin: auto;
-      background-color: rgba(32, 32, 32, 0.5);
+      background-color: rgba(32, 32, 32, 0.25);
       display: flex;
       flex-direction: row;
       place-items: center;
@@ -205,7 +221,9 @@ html {
       .MaxPlan .Panel .Notes .Items {
         width: 100%;
         transform: translateY(-100%);
-        margin: auto 25px; }
+        margin: auto 25px;
+        opacity: 0;
+        transition: 300ms; }
         .MaxPlan .Panel .Notes .Items ul {
           list-style-type: none;
           display: flex;
@@ -217,6 +235,7 @@ html {
             width: fit-content;
             height: fit-content;
             display: grid;
+            justify-content: center;
             place-items: center;
             transition: 300ms; }
           .MaxPlan .Panel .Notes .Items ul li:hover {
@@ -224,6 +243,8 @@ html {
           .MaxPlan .Panel .Notes .Items ul li:active {
             transform: rotateZ(20deg);
             color: #24dd52; }
+      .MaxPlan .Panel .Notes .Items:hover {
+        opacity: 1; }
       .MaxPlan .Panel .Notes .Boxes {
         width: 100%;
         justify-content: center;
@@ -236,30 +257,37 @@ html {
           flex-direction: row;
           gap: 1em;
           overflow: auto;
-          height: 90%;
+          height: 80%;
           position: absolute;
           bottom: 20%;
           flex-wrap: wrap;
-          place-items: center;
           width: 100%;
+          justify-content: center;
           list-style-type: none; }
           .MaxPlan .Panel .Notes .Boxes ul li {
             position: relative;
-            width: 280px;
+            width: fit-content;
             background-color: rgba(32, 32, 32, 0.5);
-            height: 150px;
+            height: fit-content;
+            display: flex;
+            padding: 15px 25px;
+            flex-direction: column;
+            justify-content: center;
             border-radius: 8px; }
             .MaxPlan .Panel .Notes .Boxes ul li p {
               margin: 15px;
               color: white; }
             .MaxPlan .Panel .Notes .Boxes ul li span {
               width: 100%;
-              height: 10%;
+              height: 5%;
+              display: flex;
+              flex-wrap: wrap;
+              flex-direction: column;
+              justify-content: center;
+              place-items: center;
               position: relative; }
               .MaxPlan .Panel .Notes .Boxes ul li span button {
-                position: absolute;
                 color: white;
-                left: 0;
                 background: none;
                 outline: none;
                 cursor: pointer;
@@ -272,11 +300,9 @@ html {
                 transform: rotateZ(20deg);
                 color: red; }
               .MaxPlan .Panel .Notes .Boxes ul li span h5 {
-                color: white;
-                position: relative;
-                float: right; }
+                color: white; }
     .MaxPlan .Panel .User {
-      width: 315px;
+      width: 350px;
       height: auto;
       margin: auto;
       background-color: rgba(32, 32, 32, 0.25);
@@ -290,11 +316,11 @@ html {
         background-color: rgba(32, 32, 32, 0.5);
         display: grid;
         border-radius: 8px;
-        padding: 5px;
+        width: 300px;
         place-items: center; }
         .MaxPlan .Panel .User .Box .Image {
-          width: 150px;
-          height: 150px;
+          width: 125px;
+          height: 125px;
           border-radius: 50%;
           background-color: #50cb70;
           position: sticky;
@@ -303,7 +329,7 @@ html {
           place-items: center;
           justify-content: center;
           color: white;
-          font-size: 100px; }
+          font-size: 60px; }
         .MaxPlan .Panel .User .Box .Texts {
           margin-top: 5px;
           color: #50cb70;
@@ -312,14 +338,14 @@ html {
           flex-direction: column;
           flex-wrap: wrap; }
           .MaxPlan .Panel .User .Box .Texts h1 {
-            font-size: 25px;
+            font-size: 22px;
             color: #55CF79; }
           .MaxPlan .Panel .User .Box .Texts h2 {
-            font-size: 20px;
-            margin-top: -10px;
+            font-size: 17px;
+            margin-top: -5px;
             color: #7DE29B; }
           .MaxPlan .Panel .User .Box .Texts h3 {
-            font-size: 18px;
+            font-size: 15px;
             margin: 10px auto;
             color: #7DE29B; }
 

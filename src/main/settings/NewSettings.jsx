@@ -199,14 +199,6 @@ export default function NewSettings() {
                         })
                     }
                 </span>
-                <span className="AddPDF">
-                    <button onClick={() => {
-                        open.current.click()
-                    }}>
-                        <input ref={open} accept=".pdf" type="file" style={{display: "none"}}/>
-                        Yeni Sunum Ekle
-                    </button>
-                </span>
             </li>
             <li>
                 <h1 className={"h1"} style={{padding: '15px 100px'}}>Sınıflar</h1>
@@ -273,7 +265,7 @@ export default function NewSettings() {
                         </span>
                         <span className="Mail">
                             <h1><BiSolidBook/> <span
-                                style={{fontSize: '15px', color: '#fff'}}>{about.mail}</span></h1>
+                                style={{fontSize: '13px', color: '#fff'}}>{about.mail}</span></h1>
                             <button onClick={() => {
                                 DisplayHandler();
                                 setEdit("mail_adresi");

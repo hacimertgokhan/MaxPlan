@@ -29,6 +29,8 @@ export default function EditValue({display, _old}) {
     function doSet() {
         if(!Input.trim()) return;
         set(_old, Input);
+        window.location.reload()
+
     }
 
     return (
