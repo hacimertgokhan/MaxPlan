@@ -7,6 +7,11 @@
 ![yenimaxplan1](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/be348885-ff6c-4cd2-812c-17c7c1950b29)
 ![yenimaxplan2](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/31ce93be-bd83-428e-b5a0-bfd94c471fc2)
 ![yenimaxplan3](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/50b78683-a9fa-46ba-9e49-e35f2374ba9b)
+![maxplangorsel1](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/74d9dde4-86dc-4d14-9c46-850d11482b51)
+![maxplangorsel2](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/78cb6a49-4f36-4ebd-8394-a5ed34c9821d)
+![maxplangorsel3](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/d5465805-e1b1-4746-8329-588295ff7d74)
+![maxplangorsel4](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/fbfbffa0-43e6-4d16-ac1f-fbff853ec212)
+![maxplangorsel5](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/d142fba9-b718-4c51-8df8-46743b448409)
 
 # MaxPlanin Sorunlara Karşı Ürettiği Çözümler
 
