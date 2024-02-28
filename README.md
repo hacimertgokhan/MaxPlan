@@ -1,3 +1,9 @@
+
+![yenimaxplan0](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/9a3a50f7-e02d-44e9-bda0-efd3720beeb6)
+![yenimaxplan1](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/be348885-ff6c-4cd2-812c-17c7c1950b29)
+![yenimaxplan2](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/31ce93be-bd83-428e-b5a0-bfd94c471fc2)
+![yenimaxplan3](https://github.com/hacimertgokhan/MaxPlan/assets/64479768/50b78683-a9fa-46ba-9e49-e35f2374ba9b)
+
 # MaxPlanin Sorunlara Karşı Ürettiği Çözümler
 
 | Problem                                                                            | Çözüm                                                                                                                                                                                                                                                               |
