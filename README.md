@@ -19,12 +19,6 @@
 | +Eklenecek: Mail takibi                                                            | Yalnızca öğrenciler tarafından gönderilen mailleri listeleyerek mail takibini arttırır.                                                                                                                                                                             |
 
 
-# MaxPlan Package Folder Creator
-MaxPlan Quarkın kullanıcı dosyalarını ve verilerini oluşturup yazdırılması için kodlandı,
-
-# MaxPlan Website
-Dağıtımların canlı takibi ve dökümantasyon için kodlandı.
-
 # MaxPlan Quark
 | MaxPlanin Diğer Özellikleri    | Planlanan Özellikler |
 |--------------------------------|----------------------|
