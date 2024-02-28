@@ -35,7 +35,7 @@ export default function EditValue({display, _old}) {
 
     return (
       <main style={{display: display,borderRadius: '5px',color: "white", justifyContent: "center", flexDirection: "column",gap: '2em',position: "absolute", width: "100%", height: "100%", background: "rgba(16, 16, 16, 0.75)", placeItems: "center"}}>
-        <h1 style={{fontSize: '25px'}}><span style={{color: 'lightgreen'}}>{_old}</span> düzenleniyor...</h1>
+        <h1 style={{fontSize: '25px'}}><span style={{color: 'lightgreen'}}>{_old.replace("ogretim_gorevlisi", "Adınız").replace("ana_bransi", "Branş").replace("mail_adresi", "Mail")}</span> düzenleniyor...</h1>
           <input
             type={"text"}
             value={Input}
